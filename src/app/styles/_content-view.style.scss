@@ -1,0 +1,11 @@
+.template{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content{
+  max-height: calc(100vh - 51px);
+  height: 100%;
+}
