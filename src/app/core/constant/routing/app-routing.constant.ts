@@ -4,15 +4,8 @@ export class AppRoutingConstant {
 
   static get getHomeRoute(): ITabLink {
     return {
-      name: 'home',
-      route: ['home']
-    };
-  }
-
-  static get getSettingsRoute(): ITabLink {
-    return {
-      name: 'settings',
-      route: ['settings']
+      name: 'preview',
+      route: ['preview']
     };
   }
 
@@ -20,6 +13,13 @@ export class AppRoutingConstant {
     return {
       name: 'admin-panel',
       route: ['admin-panel']
+    };
+  }
+
+  static get getSettingsRoute(): ITabLink {
+    return {
+      name: 'settings',
+      route: ['settings']
     };
   }
 

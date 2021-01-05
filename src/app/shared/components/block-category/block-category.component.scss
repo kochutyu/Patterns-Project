@@ -1,0 +1,15 @@
+.block-category {
+  padding: 20px 15px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  position: relative;
+
+  &__title {
+    white-space: nowrap;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 5px;
+  }
+}

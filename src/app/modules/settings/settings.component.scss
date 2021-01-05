@@ -1,0 +1,29 @@
+.settings {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.category-list{
+  width: 50%;
+  height: 50vh;
+
+  @media screen and (max-width: 800px){
+    padding: 0 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+app-block-category-list{
+  display: block;
+  margin-bottom: 10px;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
