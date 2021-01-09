@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {from, Observable} from 'rxjs';
 import {AngularFireDatabase} from "@angular/fire/database";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,10 @@ export class HttpService {
   }
 
   public get(url: string): Observable<any> {
-    const promise: Promise<any> = this.db.database.ref(url).get();
-    return from(promise);
+    const promise: Promise<any> = this.db.database.ref(url).once('value');
+    return from(promise).pipe(
+      map(v => v.val())
+    );
   }
 
   public delete(url: string): Observable<any> {
