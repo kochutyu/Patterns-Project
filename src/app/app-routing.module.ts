@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {AppRoutingConstant} from "./core/constant/routing/app-routing.constant";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: '', redirectTo: AppRoutingConstant.getHomeRoute.route.join('/'), pathMatch: 'full'},
   {
     path: AppRoutingConstant.getHomeRoute.route.join('/'),
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
@@ -16,7 +16,7 @@ const routes: Routes = [
     path: AppRoutingConstant.getSettingsRoute.route.join('/'),
     loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsModule)
   },
-  { path: '**', redirectTo: '/home' }
+  {path: '**', redirectTo: AppRoutingConstant.getHomeRoute.route.join('/')}
 ];
 
 @NgModule({
@@ -24,8 +24,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-
-  constructor() {
-    console.log(AppRoutingConstant.getHomeRoute.route.join('/'))
-  }
 }

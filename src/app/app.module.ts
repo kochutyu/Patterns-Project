@@ -9,8 +9,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppComponent} from './app.component';
 
 import {environment} from "../environments/environment";
-import {SharedComponentModule} from "./shared/components/shared-component.module";
-import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -23,8 +21,6 @@ import {SharedModule} from "./shared/shared.module";
     AngularFireModule.initializeApp(environment.firebase),
     AppSharedModule,
     HttpClientModule,
-    SharedModule,
-    SharedComponentModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

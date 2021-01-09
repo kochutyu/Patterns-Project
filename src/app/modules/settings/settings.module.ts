@@ -3,9 +3,10 @@ import {CommonModule} from '@angular/common';
 
 import {SettingsComponent} from "./settings.component";
 import {RouterModule, Routes} from "@angular/router";
-import {ConfigComponent} from "./shared/compontnts/config/config.component";
 import {SharedModule} from "../../shared/shared.module";
-import {SharedComponentModule} from "../../shared/components/shared-component.module";
+import {SettingsContainerComponent} from './shared/containers/settings-container/settings-container.component';
+import {CreatePatternsComponent} from './shared/containers/settings-container/patterns/create-patterns.component';
+import {StructurePatternsComponent} from "./shared/containers/settings-container/patterns/structure-patterns.component";
 
 const routes: Routes = [
   {
@@ -16,14 +17,17 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     SettingsComponent,
-    ConfigComponent
+    SettingsContainerComponent,
+    CreatePatternsComponent,
+    StructurePatternsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule,
-    SharedComponentModule
-  ]
+    SharedModule
+  ],
+  exports: [],
+  providers: []
 })
 export class SettingsModule {
 }

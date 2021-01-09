@@ -1,13 +1,14 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="template">
       <app-navbar-view></app-navbar-view>
-      <main class="content">
+      <div class="content">
         <router-outlet></router-outlet>
-      </main>
+      </div>
     </div>
   `,
 })
