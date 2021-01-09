@@ -5,6 +5,7 @@ import {MaterialModule} from './modules/material.module';
 import {NavbarViewComponent} from "./components/navbar-view/navbar-view.component";
 import {BlockCategoryComponent} from "./components/block-category/block-category.component";
 import {BlockCategoryListComponent} from "./components/block-category/block-category-list/block-category-list.component";
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import {BlockCategoryListComponent} from "./components/block-category/block-cate
     NavbarViewComponent,
     BlockCategoryComponent,
     BlockCategoryListComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import {BlockCategoryListComponent} from "./components/block-category/block-cate
     MaterialModule,
     NavbarViewComponent,
     BlockCategoryComponent,
-    BlockCategoryListComponent
+    BlockCategoryListComponent,
+    CardComponent
   ]
 })
 export class SharedModule {

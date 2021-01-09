@@ -5,8 +5,12 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   styleUrls: ['../../../settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <app-create-patterns class="space-bottom"></app-create-patterns>
-    <app-structure-patterns></app-structure-patterns>
+    <mat-card class="space-bottom">
+      <app-create-patterns></app-create-patterns>
+    </mat-card>
+    <mat-card>
+      <app-structure-patterns></app-structure-patterns>
+    </mat-card>
   `
 })
 export class SettingsContainerComponent {
