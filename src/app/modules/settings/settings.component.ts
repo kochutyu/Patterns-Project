@@ -2,7 +2,9 @@ import {Component} from "@angular/core";
 
 @Component({
   template: `
-    <app-settings-container></app-settings-container>
+    <div class="settings">
+      <app-settings-container class="settings-container"></app-settings-container>
+    </div>
   `,
   styleUrls: ['./settings.component.scss']
 })
