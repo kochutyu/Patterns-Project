@@ -9,10 +9,10 @@ export class AppRoutingConstant {
     };
   }
 
-  static get getAdminPanelRoute(): ITabLink {
+  static get getDashboardRoute(): ITabLink {
     return {
-      name: 'admin-panel',
-      route: ['admin-panel']
+      name: 'dashboard',
+      route: ['dashboard']
     };
   }
 

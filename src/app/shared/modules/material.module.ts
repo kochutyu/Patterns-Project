@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -11,12 +12,14 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     CommonModule,
     MatTabsModule,
     MatCheckboxModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatIconModule
   ],
   exports: [
     MatTabsModule,
     MatCheckboxModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatIconModule
   ]
 })
 export class MaterialModule {

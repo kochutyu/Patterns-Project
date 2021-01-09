@@ -9,7 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: AppRoutingConstant.getAdminPanelRoute.route.join('/'),
+    path: AppRoutingConstant.getDashboardRoute.route.join('/'),
     loadChildren: () => import('./modules/admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
   },
   {

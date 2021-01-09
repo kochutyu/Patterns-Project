@@ -6,15 +6,18 @@ export class NavbarTabLinkConstant {
     return [
       {
         name: AppRoutingConstant.getHomeRoute.name.toUpperCase(),
-        route: AppRoutingConstant.getHomeRoute.route
+        route: AppRoutingConstant.getHomeRoute.route,
+        icon: 'preview'
       },
       {
-        name: AppRoutingConstant.getAdminPanelRoute.name.split('-').map(v => v.toUpperCase()).join(' '),
-        route: AppRoutingConstant.getAdminPanelRoute.route
+        name: AppRoutingConstant.getDashboardRoute.name.split('-').map(v => v.toUpperCase()).join(' '),
+        route: AppRoutingConstant.getDashboardRoute.route,
+        icon: 'dashboard'
       },
       {
         name: AppRoutingConstant.getSettingsRoute.name.toUpperCase(),
-        route: AppRoutingConstant.getSettingsRoute.route
+        route: AppRoutingConstant.getSettingsRoute.route,
+        icon: 'settings'
       }
     ]
   }
