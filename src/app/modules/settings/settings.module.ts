@@ -1,12 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
-import {SettingsComponent} from "./settings.component";
-import {RouterModule, Routes} from "@angular/router";
 import {SharedModule} from "../../shared/shared.module";
-import {SettingsContainerComponent} from './shared/containers/settings-container/settings-container.component';
-import {CreatePatternsComponent} from './shared/containers/settings-container/patterns/create-patterns.component';
-import {StructurePatternsComponent} from "./shared/containers/settings-container/patterns/structure-patterns.component";
+
+import {RouterModule, Routes} from "@angular/router";
+import {StructurePatternsComponent} from "./shared/containers/patterns/structure-patterns.component";
+import {CreatePatternsComponent} from "./shared/containers/patterns/create-patterns.component";
+import {SettingsContainerComponent} from "./shared/containers/settings-container.component";
+import {SettingsComponent} from "./settings.component";
+
+import {SettingsService} from "../../core/services/settings.service";
+
 
 const routes: Routes = [
   {
@@ -26,8 +29,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule
   ],
-  exports: [],
-  providers: []
+  providers: [
+    SettingsService
+  ]
 })
 export class SettingsModule {
 }

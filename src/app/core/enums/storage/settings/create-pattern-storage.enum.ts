@@ -1,4 +1,4 @@
-export enum ECreatePatternStorage {
-  FACTORY_STATE = 'pr-factory-state',
-  BUILDER_STATE = 'pr-builder-state'
+export enum ECreatePatternState {
+  FACTORY_STATE = '[Settings] Factory State',
+  BUILDER_STATE = '[Settings] Builder State'
 }
