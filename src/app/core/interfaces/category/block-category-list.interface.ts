@@ -1,6 +1,7 @@
-import {ICheckbox} from "../components/form/checkbox.interface";
+import {ICheckboxPattern} from "../components/form/checkbox-pattern.interface";
+
 
 export interface IBlockCategoryList {
   blockName: string;
-  content: Array<ICheckbox>;
+  content: Array<ICheckboxPattern>;
 }

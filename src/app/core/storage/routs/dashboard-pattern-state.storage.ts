@@ -1,9 +1,14 @@
-import {StorageHelper} from '../storage.helper';
-import {EStorageType} from '../../enums/storage/srorage-type.enum';
-import {ECreatePatternStorage} from "../../enums/storage/settings/create-pattern-storage.enum";
-import {EStructurePatternStorage} from "../../enums/storage/settings/structure-pattern-storage.enum";
+import {UserStorage} from "../user-storage";
 
-export class DashboardCreatePatternStorage extends StorageHelper {
+import {UDashboardPatterns} from "../../utils/dashboard/dashboard-patterns.utils";
+
+import {EStorageType} from '../../enums/storage/srorage-type.enum';
+import {EDashboardPatternStorage} from "../../enums/storage/dashboard/dashboard-pattern-storage.enum";
+
+import {IDashboardCategoryList} from "../../interfaces/category/dashboard-category-list.interface";
+
+
+export class DashboardPatternStateStorage extends UserStorage {
 
   static storageType: EStorageType = EStorageType.LOCAL;
 
@@ -11,17 +16,19 @@ export class DashboardCreatePatternStorage extends StorageHelper {
     super();
   }
 
-  static setState(pattern: ECreatePatternStorage | EStructurePatternStorage, state: boolean): void {
+  static setState(pattern: EDashboardPatternStorage, state: IDashboardCategoryList): void {
     this.type(this.storageType).setItem(pattern, JSON.stringify(state));
   }
 
-  static getState(pattern: ECreatePatternStorage | EStructurePatternStorage, defaultState = false): boolean {
-    return this.type(this.storageType).getItem(pattern) ?
-      JSON.parse(this.type(this.storageType).getItem(pattern)) :
-      defaultState;
+  static getState(pattern: EDashboardPatternStorage): IDashboardCategoryList {
+    if (this.type(this.storageType).getItem(pattern)) {
+      return JSON.parse(this.type(this.storageType).getItem(pattern));
+    } else {
+      return UDashboardPatterns.getInitialCategory(pattern);
+    }
   }
 
-  static remove(pattern: ECreatePatternStorage | EStructurePatternStorage): void {
+  static remove(pattern: EDashboardPatternStorage): void {
     this.type(this.storageType).removeItem(pattern);
   }
 }

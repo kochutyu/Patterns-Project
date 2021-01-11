@@ -1,21 +1,29 @@
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
-import {ECreatePattern} from "../../../enums/patterns/create-pattern.enum";
-import {ECreatePatternImg} from "../../../enums/patterns-img/create-pattern-img.enum";
+import {EStructurePattern} from "../../../enums/patterns/structure-pattern/structure-pattern.enum";
+import {EStructurePatternImg} from "../../../enums/patterns/structure-pattern/structure-pattern-img.enum";
 
-export class DashboardCreatePatternConstant {
+import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+
+
+export class DashboardStructurePatternConstant {
+
   static get getPatternsList(): IDashboardCategoryList {
     return {
-      categoryName: 'Creation Design Patterns',
+      categoryName: 'Structure Design Patterns',
       content: [
         {
-          id: ECreatePattern.FACTORY,
-          title: ECreatePattern.FACTORY,
-          imgSrc: ECreatePatternImg.FACTORY
+          id: EStructurePattern.ADAPTER,
+          title: EStructurePattern.ADAPTER,
+          imgSrc: EStructurePatternImg.ADAPTER
         },
         {
-          id: ECreatePattern.BUILDER,
-          title: ECreatePattern.BUILDER,
-          imgSrc: ECreatePatternImg.BUILDER
+          id: EStructurePattern.BRIDGE,
+          title: EStructurePattern.BRIDGE,
+          imgSrc: EStructurePatternImg.BRIDGE
+        },
+        {
+          id: EStructurePattern.COMPOSITE,
+          title: EStructurePattern.COMPOSITE,
+          imgSrc: EStructurePatternImg.COMPOSITE
         }
       ]
     }
@@ -23,14 +31,9 @@ export class DashboardCreatePatternConstant {
 
   static get initialState(): IDashboardCategoryList {
     return {
-      categoryName: 'Creation Design Patterns',
-      content: [
-        {
-          id: ECreatePattern.FACTORY,
-          title: ECreatePattern.FACTORY,
-          imgSrc: ECreatePatternImg.FACTORY
-        }
-      ]
+      categoryName: 'Structure Design Patterns',
+      content: []
     }
   }
+
 }

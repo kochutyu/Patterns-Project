@@ -1,11 +1,14 @@
 import {NgModule} from "@angular/core";
 import {StoreModule} from "@ngrx/store";
-import {AppReducers} from "../store/reducers/app.reducers";
 import {EffectsModule} from "@ngrx/effects";
-import {StoreEffectConfig} from "../config/store/store-effect.config";
-import {StoreRouterConnectingModule} from "@ngrx/router-store";
-import {environment} from "../../../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {StoreRouterConnectingModule} from "@ngrx/router-store";
+
+import {StoreEffectConfig} from "../config/store/store-effect.config";
+import {environment} from "../../../environments/environment";
+
+import {AppReducers} from "../store/reducers/app.reducers";
+
 
 @NgModule({
   imports: [

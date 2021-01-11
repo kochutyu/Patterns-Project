@@ -1,5 +1,6 @@
 import {createAction} from "@ngrx/store";
 
+
 // Adapter
 export const TurnOnAdapterPatternAction = createAction('[Settings] Turn On Adapter Pattern');
 export const TurnOffAdapterPatternAction = createAction('[Settings] Turn Off Adapter Pattern');

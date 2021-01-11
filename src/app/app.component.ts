@@ -5,7 +5,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="template">
-      <app-navbar-view></app-navbar-view>
+      <div class="navbar">
+        <app-navbar-view></app-navbar-view>
+      </div>
       <div class="content">
         <router-outlet></router-outlet>
       </div>

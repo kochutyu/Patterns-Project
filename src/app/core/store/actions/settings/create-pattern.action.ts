@@ -1,5 +1,6 @@
 import {createAction} from "@ngrx/store";
 
+
 // Factory
 export const TurnOnFactoryPatternAction = createAction('[Settings] Turn On Factory Pattern');
 export const TurnOffFactoryPatternAction = createAction('[Settings] Turn Off Factory Pattern');

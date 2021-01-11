@@ -2,12 +2,26 @@ import {ICreatePatternState} from "../../interfaces/store/state/settings/pattern
 import {IStructurePatternState} from "../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
 import {ISettingsPatternReduce} from "../../interfaces/settings/settings-pattern-reduce.interface";
 
-export const patternReduce = (payload: ISettingsPatternReduce): ICreatePatternState | IStructurePatternState => {
-  return {
-    ...payload.state,
-    [payload.keyName]: {
-      ...payload.state[payload.keyName],
-      isChecked: payload.value
+// export const patternReduce = (payload: ISettingsPatternReduce): ICreatePatternState | IStructurePatternState => {
+//   return {
+//     ...payload.state,
+//     [payload.keyName]: {
+//       ...payload.state[payload.keyName],
+//       isChecked: payload.value
+//     }
+//   }
+// }
+
+export class USettings {
+
+  public static patternReduce(payload: ISettingsPatternReduce): ICreatePatternState | IStructurePatternState {
+    return {
+      ...payload.state,
+      [payload.keyName]: {
+        ...payload.state[payload.keyName],
+        isChecked: payload.value
+      }
     }
   }
+
 }

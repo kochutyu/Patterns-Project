@@ -1,51 +1,39 @@
-import {IAppState} from "../../../interfaces/store/state/app-state.interface";
 import {createSelector, select} from "@ngrx/store";
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
 import {pipe} from "rxjs";
-import {map, switchMap, tap} from "rxjs/operators";
-import {DashboardCreatePatternConstant} from "../../../constant/components/dashboard/dashboard-create-pattern.constant";
-import {IDashboardCard} from "../../../interfaces/components/card/dashboard-card.interface";
+import {switchMap, tap} from "rxjs/operators";
+
 import {DashboardPatternStateStorage} from "../../../storage/routs/dashboard-pattern-state.storage";
-import {EDashboardPatternStateStorage} from "../../../enums/storage/dashboard/dashboard-pattern-state-storage.enum";
 
-const selectPatternState = (state: IAppState) => state.dashboardCreatePatterns;
+import {EDashboardPatternStorage} from "../../../enums/storage/dashboard/dashboard-pattern-storage.enum";
 
-export const selectDashboardCreatePattern = createSelector(
-  selectPatternState,
-  (state: IDashboardCategoryList) => state
-);
+import {IAppState} from "../../../interfaces/store/state/app-state.interface";
+import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
 
-export const selectDashboardCreatePatternTitle = createSelector(
-  selectPatternState,
-  (state: IDashboardCategoryList) => state.categoryName
-);
 
-export const selectDashboardCreatePatternList = createSelector(
-  selectPatternState,
-  (state: IDashboardCategoryList) => state.content
-);
+export class DashboardStructurePatternSelectors {
 
-export const selectDashboardCreatePatternStoragePipe = pipe(
-  switchMap(() => select(selectDashboardCreatePattern)),
-  tap(v => DashboardPatternStateStorage.setState(EDashboardPatternStateStorage.CREATE_PATTERNS, v))
-);
+  public static selectCategory = createSelector(
+    DashboardStructurePatternSelectors.selectPatternState,
+    (state: IDashboardCategoryList) => state
+  );
 
-const insert = (arr, index, newItem) => [
-  // part of the array before the specified index
-  ...arr.slice(0, index),
-  // inserted item
-  newItem,
-  // part of the array after the specified index
-  ...arr.slice(index)
-]
+  public static selectTitle = createSelector(
+    DashboardStructurePatternSelectors.selectPatternState,
+    (state: IDashboardCategoryList) => state.categoryName
+  );
 
-export const togglePattern = (patterns: Array<IDashboardCard>, id: string): Array<IDashboardCard> => {
-  const isExist = patterns.some(c => c.id === id);
-  if (isExist) {
-    return patterns.filter(c => c.id !== id)
-  } else {
-    const content: Array<IDashboardCard> = DashboardCreatePatternConstant.getPatternsList.content;
-    const patternIndex: number = content.findIndex(c => c.id === id);
-    return insert(patterns, patternIndex, content[patternIndex]);
+  public static selectPatterns = createSelector(
+    DashboardStructurePatternSelectors.selectPatternState,
+    (state: IDashboardCategoryList) => state.content
+  );
+
+  public static selectStoragePipe = pipe(
+    switchMap(() => select(DashboardStructurePatternSelectors.selectCategory)),
+    tap(v => DashboardPatternStateStorage.setState(EDashboardPatternStorage.STRUCTURE_PATTERNS, v))
+  );
+
+  public static selectPatternState(state: IAppState): IDashboardCategoryList {
+    return state.dashboardStructurePatterns;
   }
+
 }

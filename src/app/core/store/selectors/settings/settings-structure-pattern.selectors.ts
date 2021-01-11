@@ -1,39 +1,47 @@
-import {createSelector, select} from "@ngrx/store";
-import {IAppState} from "../../../interfaces/store/state/app-state.interface";
-import {pipe} from "rxjs";
 import {map} from "rxjs/operators";
-import {IStructurePatternState} from "../../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
+import {pipe} from "rxjs";
+import {createSelector, select} from "@ngrx/store";
+
+import {IAppState} from "../../../interfaces/store/state/app-state.interface";
 import {ICheckboxPattern} from "../../../interfaces/components/form/checkbox-pattern.interface";
+import {ICreatePatternState} from "../../../interfaces/store/state/settings/patterns/create-pattern-state.interface";
+import {IStructurePatternState} from "../../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
 
-const selectPatternState = (state: IAppState) => state.settingsStructurePatterns;
+export class SettingsStructurePatternSelectors {
 
-export const selectStructurePatterns = createSelector(
-  selectPatternState,
-  (state: IStructurePatternState): IStructurePatternState => state
-);
+  public static selectCategory = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState) => state
+  );
 
-export const selectAdapterPattern = createSelector(
-  selectPatternState,
-  (state: IStructurePatternState): ICheckboxPattern => state.adapterPattern
-);
+  public static selectAdapterPattern = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState): ICheckboxPattern => state.adapterPattern
+  );
 
-export const selectBridgePattern = createSelector(
-  selectPatternState,
-  (state: IStructurePatternState): ICheckboxPattern => state.bridgePattern
-);
+  public static selectBridgePattern = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState): ICheckboxPattern => state.bridgePattern
+  );
 
-export const selectCompositePattern = createSelector(
-  selectPatternState,
-  (state: IStructurePatternState): ICheckboxPattern => state.compositePattern
-);
+  public static selectCompositePattern = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState): ICheckboxPattern => state.compositePattern
+  );
 
-export const selectStructurePatternsPipe = pipe(
-  select(selectStructurePatterns),
-  map((v): Array<ICheckboxPattern> => Object.keys(v).map(key => v[key])),
-  map((patterns) => {
-    return {
-      blockName: 'Structure Design Pattern',
-      content: patterns
-    }
-  })
-)
+  public static selectBlockListPipe = pipe(
+    select(SettingsStructurePatternSelectors.selectCategory),
+    map((v): Array<ICheckboxPattern> => Object.keys(v).map(key => v[key])),
+    map((patterns) => {
+      return {
+        blockName: 'Structure Design Pattern',
+        content: patterns
+      }
+    })
+  )
+
+  static selectPatternState(state: IAppState): ICreatePatternState | IStructurePatternState {
+    return state.settingsStructurePatterns;
+  }
+
+}

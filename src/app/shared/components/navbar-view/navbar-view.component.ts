@@ -3,7 +3,7 @@ import {ITabLink} from "../../../core/interfaces/components/tabs/tab-link.interf
 import {IRouterLinkWithIndex} from "../../../core/interfaces/router/router-link-with-index.interface";
 import {Router} from "@angular/router";
 import {NavbarTabLinkConstant} from "../../../core/constant/components/navbar/navbar-tab-link.constant";
-import {convertRouteStringToString} from "../../../core/transform/router/router-link.transform";
+import {URouterLink} from "../../../core/utils/router/router-link.utils";
 
 @Component({
   selector: 'app-navbar-view',
@@ -38,7 +38,7 @@ export class NavbarViewComponent implements AfterViewInit, IRouterLinkWithIndex 
     const interval = setInterval(() => {
       if (this.getActiveRoute) {
         const index = this.tabs.findIndex(t =>
-          (convertRouteStringToString(this.getActiveRoute).toLowerCase() === t.name.toLowerCase())
+          (URouterLink.convertRouteStringToString(this.getActiveRoute).toLowerCase() === t.name.toLowerCase())
         );
 
         if (!!index) {

@@ -1,19 +1,26 @@
 import {Action, createReducer, on} from "@ngrx/store";
-import {AppState} from "../../state/app.state";
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
-import {togglePattern} from "../../selectors/dashboard/dashboard-create-pattern.selectors";
-import {UpdateDashboardCreatePattern, UpdateDashboardStructurePattern} from "../../actions/dashboard/dashboard.action";
 
-const _dashboardCreatePatternsReducer = createReducer(
-  AppState.initialState.dashboardCreatePatterns,
-  on(UpdateDashboardCreatePattern, (state: IDashboardCategoryList, {id}) => {
-    return {...state, content: togglePattern(state.content, id)}
-  }),
+import {AppState} from "../../state/app.state";
+
+import {UpdateDashboardStructurePattern} from "../../actions/dashboard/dashboard.action";
+
+import {EDashboardPatternStorage} from "../../../enums/storage/dashboard/dashboard-pattern-storage.enum";
+
+import {UDashboardPatterns} from "../../../utils/dashboard/dashboard-patterns.utils";
+
+import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+
+
+const _dashboardStructurePatternsReducer = createReducer(
+  AppState.initialState.dashboardStructurePatterns,
   on(UpdateDashboardStructurePattern, (state: IDashboardCategoryList, {id}) => {
-    return {...state, content: togglePattern(state.content, id)}
+    return {
+      ...state,
+      content: UDashboardPatterns.togglePattern(state.content, id, EDashboardPatternStorage.STRUCTURE_PATTERNS)
+    }
   }),
 );
 
-export const dashboardCreatePatternsReducer = (state: any, action: Action) => {
-  return _dashboardCreatePatternsReducer(state, action);
+export const dashboardStructurePatternsReducer = (state: IDashboardCategoryList, action: Action) => {
+  return _dashboardStructurePatternsReducer(state, action);
 }

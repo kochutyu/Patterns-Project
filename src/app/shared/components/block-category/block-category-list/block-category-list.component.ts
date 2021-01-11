@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {IBlockCategoryList} from "../../../../core/interfaces/category/block-category-list.interface";
 import {MatSlideToggleChange} from "@angular/material/slide-toggle";
+
+import {IBlockCategoryList} from "../../../../core/interfaces/category/block-category-list.interface";
 
 @Component({
   selector: 'app-block-category-list',

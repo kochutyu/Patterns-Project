@@ -1,6 +1,7 @@
-import {ICreatePatternState} from "../../../interfaces/store/state/settings/patterns/create-pattern-state.interface";
 import {createReducer, on} from "@ngrx/store";
-import {IStructurePatternState} from "../../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
+
+import {AppState} from "../../state/app.state";
+
 import {
   TurnOffAdapterPatternAction,
   TurnOffBridgePatternAction,
@@ -9,29 +10,32 @@ import {
   TurnOnBridgePatternAction,
   TurnOnCompositePatternAction
 } from "../../actions/settings/structure-pattern.action";
-import {patternReduce} from "../../../transform/store/settings.transforms";
-import {AppState} from "../../state/app.state";
+
+import {USettings} from "../../../utils/store/settings.utils";
+
+import {ICreatePatternState} from "../../../interfaces/store/state/settings/patterns/create-pattern-state.interface";
+import {IStructurePatternState} from "../../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
 
 
 const _structurePatternReducer = createReducer(
   AppState.initialState.settingsStructurePatterns,
   on(TurnOnAdapterPatternAction, (state: IStructurePatternState) =>
-    patternReduce({state, keyName: 'adapterPattern', value: true})
+    USettings.patternReduce({state, keyName: 'adapterPattern', value: true})
   ),
   on(TurnOffAdapterPatternAction, (state: IStructurePatternState) =>
-    patternReduce({state, keyName: 'adapterPattern', value: false})
+    USettings.patternReduce({state, keyName: 'adapterPattern', value: false})
   ),
   on(TurnOnBridgePatternAction, (state: IStructurePatternState) =>
-    patternReduce({state, keyName: 'bridgePattern', value: true})
+    USettings.patternReduce({state, keyName: 'bridgePattern', value: true})
   ),
   on(TurnOffBridgePatternAction, (state: IStructurePatternState) =>
-    patternReduce({state, keyName: 'bridgePattern', value: false})
+    USettings.patternReduce({state, keyName: 'bridgePattern', value: false})
   ),
   on(TurnOnCompositePatternAction, (state: IStructurePatternState) =>
-    patternReduce({state, keyName: 'compositePattern', value: true})
+    USettings.patternReduce({state, keyName: 'compositePattern', value: true})
   ),
   on(TurnOffCompositePatternAction, (state: IStructurePatternState) =>
-    patternReduce({state, keyName: 'compositePattern', value: false})
+    USettings.patternReduce({state, keyName: 'compositePattern', value: false})
   ),
 );
 

@@ -2,6 +2,7 @@ import {ITabLink} from "../../../interfaces/components/tabs/tab-link.interface";
 import {AppRoutingConstant} from "../../routing/app-routing.constant";
 
 export class NavbarTabLinkConstant {
+
   static get getTabLink(): Array<ITabLink> {
     return [
       {
@@ -21,4 +22,5 @@ export class NavbarTabLinkConstant {
       }
     ]
   }
+
 }

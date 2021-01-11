@@ -1,9 +1,11 @@
-import {StorageHelper} from '../storage.helper';
+import {UserStorage} from '../user-storage';
+
 import {EStorageType} from '../../enums/storage/srorage-type.enum';
 import {ECreatePatternStorage} from "../../enums/storage/settings/create-pattern-storage.enum";
 import {EStructurePatternStorage} from "../../enums/storage/settings/structure-pattern-storage.enum";
 
-export class PatternStateStorage extends StorageHelper {
+
+export class PatternStateStorage extends UserStorage {
 
   static storageType: EStorageType = EStorageType.LOCAL;
 
@@ -24,4 +26,5 @@ export class PatternStateStorage extends StorageHelper {
   static remove(pattern: ECreatePatternStorage | EStructurePatternStorage): void {
     this.type(this.storageType).removeItem(pattern);
   }
+
 }

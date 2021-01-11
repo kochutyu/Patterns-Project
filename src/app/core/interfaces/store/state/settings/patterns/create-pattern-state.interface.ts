@@ -1,6 +1,6 @@
-import {ICheckbox} from "../../../../components/form/checkbox.interface";
+import {ICheckboxPattern} from "../../../../components/form/checkbox-pattern.interface";
 
 export interface ICreatePatternState {
-  factoryPattern: ICheckbox;
-  builderPattern: ICheckbox;
+  factoryPattern: ICheckboxPattern;
+  builderPattern: ICheckboxPattern;
 }

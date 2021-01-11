@@ -5,6 +5,8 @@ import {createPatternReducer} from "./settings/create-pattern.reducers";
 import {structurePatternReducer} from "./settings/structure-pattern.reducers";
 
 import {IAppState} from "../../interfaces/store/state/app-state.interface";
+import {dashboardCreatePatternsReducer} from "./dashboard/dashboard-create-pattern.reducers";
+import {dashboardStructurePatternsReducer} from "./dashboard/dashboard-structure-pattern.reducers";
 
 export class AppReducers {
 
@@ -12,7 +14,9 @@ export class AppReducers {
     return {
       router: routerReducer,
       settingsCreatePatterns: createPatternReducer,
-      settingsStructurePatterns: structurePatternReducer
+      settingsStructurePatterns: structurePatternReducer,
+      dashboardCreatePatterns: dashboardCreatePatternsReducer,
+      dashboardStructurePatterns: dashboardStructurePatternsReducer
     }
   }
 

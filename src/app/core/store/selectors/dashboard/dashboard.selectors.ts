@@ -1,9 +1,9 @@
-import {DashboardCreatePattern} from "./dashboard/dashboard-create-pattern.selectors";
-import {DashboardStructurePattern} from "./dashboard/dashboard-structure-pattern.selectors";
+import {DashboardCreatePatternSelectors} from "./dashboard-create-pattern.selectors";
+import {DashboardStructurePatternSelectors} from "./dashboard-structure-pattern.selectors";
 
 export class SDashboard {
 
-  static createPatterns = DashboardCreatePattern;
-  static structurePatterns = DashboardStructurePattern;
+  static createPatterns = DashboardCreatePatternSelectors;
+  static structurePatterns = DashboardStructurePatternSelectors;
 
 }

@@ -1,7 +1,7 @@
-import {ICheckbox} from "../../../../components/form/checkbox.interface";
+import {ICheckboxPattern} from "../../../../components/form/checkbox-pattern.interface";
 
 export interface IStructurePatternState {
-  adapterPattern: ICheckbox;
-  bridgePattern: ICheckbox;
-  compositePattern: ICheckbox;
+  adapterPattern: ICheckboxPattern;
+  bridgePattern: ICheckboxPattern;
+  compositePattern: ICheckboxPattern;
 }
