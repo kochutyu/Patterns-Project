@@ -6,6 +6,9 @@ import {NavbarViewComponent} from "./components/navbar-view/navbar-view.componen
 import {BlockCategoryComponent} from "./components/block-category/block-category.component";
 import {BlockCategoryListComponent} from "./components/block-category/block-category-list/block-category-list.component";
 import { CardComponent } from './components/card/card.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import {RouterModule} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -14,17 +17,21 @@ import { CardComponent } from './components/card/card.component';
     BlockCategoryComponent,
     BlockCategoryListComponent,
     CardComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
+    RouterModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MaterialModule,
     NavbarViewComponent,
     BlockCategoryComponent,
     BlockCategoryListComponent,
-    CardComponent
+    CardComponent,
+    NotFoundComponent
   ]
 })
 export class SharedModule {

@@ -11,3 +11,17 @@ export class URouterLink {
   }
 
 }
+
+export const asLink = (route: string): string => {
+  if (!route){
+    return route;
+  }
+
+  return route
+    .split('/')
+    .filter(v => !!v)
+    .join('-')
+    .split('-')
+    .filter(v => !!v)
+    .join(' ');
+}

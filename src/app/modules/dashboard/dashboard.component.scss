@@ -1,0 +1,56 @@
+.category {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  background: #daebff;
+
+  @media screen and (max-width: 1250px) {
+    margin: 20px;
+  }
+
+  .patterns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+    .pattern {
+      display: flex;
+      justify-content: center;
+
+      &__item {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 1250px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 880px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+.category-full {
+  min-height: inherit;
+  height: 100%;
+}
+
+.full-page {
+  display: block;
+  padding: 0;
+  background: #daebff;
+  min-height: calc(100vh - 51px - 40px);
+  margin: 20px;
+}
+
+.error-card{
+}
+
+::ng-deep .card {
+  max-width: 100% !important;
+}

@@ -1,32 +1,44 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy} from '@angular/core';
 import {ITabLink} from "../../../core/interfaces/components/tabs/tab-link.interface";
 import {IRouterLinkWithIndex} from "../../../core/interfaces/router/router-link-with-index.interface";
 import {Router} from "@angular/router";
 import {NavbarTabLinkConstant} from "../../../core/constant/components/navbar/navbar-tab-link.constant";
-import {URouterLink} from "../../../core/utils/router/router-link.utils";
+import {asLink} from "../../../core/utils/router/router-link.utils";
+import {NavbarService} from "../../../core/services/navbar.service";
+import {Subject, timer} from "rxjs";
+import {tap} from "rxjs/operators";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-navbar-view',
   templateUrl: './navbar-view.component.html'
 })
-export class NavbarViewComponent implements AfterViewInit, IRouterLinkWithIndex {
+export class NavbarViewComponent implements AfterViewInit, OnDestroy, IRouterLinkWithIndex {
 
   public tabs: Array<ITabLink> = NavbarTabLinkConstant.getTabLink;
   public selectedTabIndex: number = 0;
 
+
+  public form: FormGroup;
+
+  private destroySubject$: Subject<void> = new Subject<void>();
+
+  private url: string;
+
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _navbar: NavbarService
   ) {
   }
 
-  private get getActiveRoute(): string {
-    return this._router.url.split('/')
-      .filter(v => !!v)
-      .find((v, i) => i == 0);
+  ngAfterViewInit() {
+    this.initUrl();
+    this.initUpdateTabLinkChanges();
+    this._navbar.updateTabLink();
   }
 
-  ngAfterViewInit() {
-    this.initSelectedRoute();
+  ngOnDestroy() {
+    this.destroySubject$.next();
   }
 
   public navigateTo(index: number): void {
@@ -34,19 +46,45 @@ export class NavbarViewComponent implements AfterViewInit, IRouterLinkWithIndex 
     this._router.navigate(this.tabs[index].route);
   }
 
-  private initSelectedRoute(): void {
-    const interval = setInterval(() => {
-      if (this.getActiveRoute) {
-        const index = this.tabs.findIndex(t =>
-          (URouterLink.convertRouteStringToString(this.getActiveRoute).toLowerCase() === t.name.toLowerCase())
-        );
+  initUpdateTabLinkChanges(): void {
+    this._navbar.observeForTabLinkChange$
+      .subscribe(_ => this.initSelectedRoute());
+  }
 
-        if (!!index) {
-          this.selectedTabIndex = index;
+  private initSelectedRoute(): void {
+
+
+    /**
+     * Find URL
+     */
+    if (!this.url) {
+      timer(100).subscribe(_ => {
+        this.initSelectedRoute();
+      });
+      return;
+    }
+
+    /**
+     * Find index for TabLink
+     */
+    const index = this.tabs.findIndex(t =>
+      (asLink(this.url).toLowerCase() === t.name.toLowerCase())
+    );
+
+    if (index > -1) {
+      this.selectedTabIndex = index;
+    }
+  }
+
+  private initUrl(): void {
+    this._router.events.pipe(
+      tap((route: any) => {
+        if (route.url) {
+          this.url = route.url;
+          this.initSelectedRoute();
         }
-        clearInterval(interval);
-      }
-    }, 100);
+      }),
+    ).subscribe();
   }
 
 }
