@@ -3,9 +3,9 @@ import {Component} from "@angular/core";
 
 @Component({
   template: `
-    home
-    <router-outlet></router-outlet>
+    Builder
   `
 })
-export class HomeComponent {
+export class BuilderComponent {
+
 }

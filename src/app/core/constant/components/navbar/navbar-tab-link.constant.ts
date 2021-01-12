@@ -6,8 +6,8 @@ export class NavbarTabLinkConstant {
   static get getTabLink(): Array<ITabLink> {
     return [
       {
-        name: AppRoutingConstant.getHomeRoute.name.toUpperCase(),
-        route: AppRoutingConstant.getHomeRoute.route,
+        name: AppRoutingConstant.getPreviewRoute.name.toUpperCase(),
+        route: AppRoutingConstant.getPreviewRoute.route,
         icon: 'preview'
       },
       {

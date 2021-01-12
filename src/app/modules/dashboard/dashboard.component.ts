@@ -58,7 +58,7 @@ export class DashboardComponent implements IRouterLink{
     this._navbar.updateTabLink();
   }
 
-  public navigateTo(route: Array<string>) {
+  public navigateTo(route: Array<string>): void {
     this._router.navigate(route);
   }
 }
