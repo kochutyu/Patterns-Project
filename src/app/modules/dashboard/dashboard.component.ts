@@ -6,6 +6,7 @@ import {IDashboardCategoryList} from "../../core/interfaces/category/dashboard-c
 import {map} from "rxjs/operators";
 import {IRouterButton} from "../../core/interfaces/router/router-button.interface";
 import {NavbarService} from "../../core/services/navbar.service";
+import {DashboardNotFoundConstant} from "../../core/constant/components/dashboard/dashboard-not-found.constant";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,11 +32,9 @@ import {NavbarService} from "../../core/services/navbar.service";
 })
 export class DashboardComponent {
 
-  public notFoundButton: IRouterButton = {
-    route: '/settings',
-    name: 'Go to settings'
-  }
-  public notFoundMessage = 'Patterns not found!';
+  public notFoundButton: IRouterButton = DashboardNotFoundConstant.getLinkInfo;
+  public notFoundMessage = DashboardNotFoundConstant.getMessage;
+
   private createPatterns$: Observable<IDashboardCategoryList> = this._store.select(SDashboard.createPatterns.selectCategory);
   private structurePatterns$: Observable<IDashboardCategoryList> = this._store.select(SDashboard.structurePatterns.selectCategory);
   public categoryPatterns$: Observable<IDashboardCategoryList[]> = combineLatest([
@@ -50,7 +49,6 @@ export class DashboardComponent {
     private _store: Store,
     private _navbar: NavbarService
   ) {
-    this.categoryPatterns$.subscribe(console.log);
   }
 
   public updateNavbar(): void {
