@@ -2,6 +2,7 @@ import {EStructurePattern} from "../../../enums/patterns/structure-pattern/struc
 import {EStructurePatternImg} from "../../../enums/patterns/structure-pattern/structure-pattern-img.enum";
 
 import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+import {StructurePatternRoutingConstant} from "../../routing/structure-pattern-routing.constant";
 
 
 export class DashboardStructurePatternConstant {
@@ -13,17 +14,20 @@ export class DashboardStructurePatternConstant {
         {
           id: EStructurePattern.ADAPTER,
           title: EStructurePattern.ADAPTER,
-          imgSrc: EStructurePatternImg.ADAPTER
+          imgSrc: EStructurePatternImg.ADAPTER,
+          route: StructurePatternRoutingConstant.getAdapter.route
         },
         {
           id: EStructurePattern.BRIDGE,
           title: EStructurePattern.BRIDGE,
-          imgSrc: EStructurePatternImg.BRIDGE
+          imgSrc: EStructurePatternImg.BRIDGE,
+          route: StructurePatternRoutingConstant.getBridge.route
         },
         {
           id: EStructurePattern.COMPOSITE,
           title: EStructurePattern.COMPOSITE,
-          imgSrc: EStructurePatternImg.COMPOSITE
+          imgSrc: EStructurePatternImg.COMPOSITE,
+          route: StructurePatternRoutingConstant.getComposite.route
         }
       ]
     }

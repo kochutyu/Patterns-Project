@@ -7,6 +7,8 @@ import {map} from "rxjs/operators";
 import {IRouterButton} from "../../core/interfaces/router/router-button.interface";
 import {NavbarService} from "../../core/services/navbar.service";
 import {DashboardNotFoundConstant} from "../../core/constant/components/dashboard/dashboard-not-found.constant";
+import {IRouterLink} from "../../core/interfaces/router/router-link.interface";
+import {Router} from "@angular/router";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +18,7 @@ import {DashboardNotFoundConstant} from "../../core/constant/components/dashboar
       <mat-card *ngFor="let patterns of categoryPatterns$ | async" class="category">
         <mat-card-title>{{patterns.categoryName}}</mat-card-title>
         <div class="patterns">
-          <div class="pattern" *ngFor="let pattern of patterns.content">
+          <div class="pattern" *ngFor="let pattern of patterns.content" (click)="navigateTo(pattern.route)">
             <app-card [data]="pattern" class="pattern__item"></app-card>
           </div>
         </div>
@@ -30,7 +32,7 @@ import {DashboardNotFoundConstant} from "../../core/constant/components/dashboar
     </ng-template>
   `
 })
-export class DashboardComponent {
+export class DashboardComponent implements IRouterLink{
 
   public notFoundButton: IRouterButton = DashboardNotFoundConstant.getLinkInfo;
   public notFoundMessage = DashboardNotFoundConstant.getMessage;
@@ -47,11 +49,16 @@ export class DashboardComponent {
 
   constructor(
     private _store: Store,
-    private _navbar: NavbarService
+    private _navbar: NavbarService,
+    private _router: Router
   ) {
   }
 
   public updateNavbar(): void {
     this._navbar.updateTabLink();
+  }
+
+  public navigateTo(route: Array<string>) {
+    this._router.navigate(route);
   }
 }
