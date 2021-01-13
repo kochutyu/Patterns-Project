@@ -1,11 +1,12 @@
-import {ITabLink} from "../../interfaces/components/tabs/tab-link.interface";
+import {ITabLink} from "../../../interfaces/components/tabs/tab-link.interface";
+import {AppRoutingConstant} from "../app-routing.constant";
 
 export class StructurePatternRoutingConstant {
 
   static get getAdapter(): ITabLink {
     return {
       name: 'adapter',
-      route: ['preview', 'adapter'],
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'adapter'],
       path: 'adapter'
     };
   }
@@ -13,7 +14,7 @@ export class StructurePatternRoutingConstant {
   static get getBridge(): ITabLink {
     return {
       name: 'bridge',
-      route: ['preview', 'bridge'],
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'bridge'],
       path: 'bridge'
     };
   }
@@ -21,7 +22,7 @@ export class StructurePatternRoutingConstant {
   static get getComposite(): ITabLink {
     return {
       name: 'composite',
-      route: ['preview', 'composite'],
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'composite'],
       path: 'composite'
     };
   }

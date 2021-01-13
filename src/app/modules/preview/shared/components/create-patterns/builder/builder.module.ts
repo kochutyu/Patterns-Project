@@ -5,7 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 
 
 const routes: Routes = [
-  {path: '', component: BuilderComponent}
+  {path: '', component: BuilderComponent, pathMatch: 'full'}
 ]
 
 @NgModule({

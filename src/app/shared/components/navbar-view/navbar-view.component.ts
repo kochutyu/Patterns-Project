@@ -1,40 +1,40 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ITabLink} from "../../../core/interfaces/components/tabs/tab-link.interface";
 import {IRouterLinkWithIndex} from "../../../core/interfaces/router/router-link-with-index.interface";
-import {Router} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {NavbarTabLinkConstant} from "../../../core/constant/components/navbar/navbar-tab-link.constant";
-import {asLink} from "../../../core/utils/router/router-link.utils";
-import {NavbarService} from "../../../core/services/navbar.service";
-import {Subject, timer} from "rxjs";
-import {tap} from "rxjs/operators";
-import {FormGroup} from "@angular/forms";
+import {Observable, Subject} from "rxjs";
+import {Store} from "@ngrx/store";
+import {SAppRouting} from "../../../core/store/selectors/routing/app-routing.selectors";
+import {filter, takeUntil, tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-navbar-view',
   templateUrl: './navbar-view.component.html'
 })
-export class NavbarViewComponent implements AfterViewInit, OnDestroy, IRouterLinkWithIndex {
+export class NavbarViewComponent implements OnInit, OnDestroy, IRouterLinkWithIndex {
 
   public tabs: Array<ITabLink> = NavbarTabLinkConstant.getTabLink;
-  public selectedTabIndex: number = 0;
 
+  public selectedTabIndex: number = 1;
 
-  public form: FormGroup;
+  public disabledTab$: Observable<boolean> = this._store.select(SAppRouting.preview.selectActiveStatus);
 
   private destroySubject$: Subject<void> = new Subject<void>();
 
-  private url: string;
-
   constructor(
+    private _store: Store,
     private _router: Router,
-    private _navbar: NavbarService
+    private _route: ActivatedRoute
   ) {
   }
 
-  ngAfterViewInit() {
-    this.initUrl();
-    this.initUpdateTabLinkChanges();
-    this._navbar.updateTabLink();
+  private get getTabIndex(): number {
+    return this.tabs.findIndex((tab) => this._router.url.includes(tab.path))
+  }
+
+  ngOnInit() {
+    this.initTabActiveRoute();
   }
 
   ngOnDestroy() {
@@ -42,49 +42,25 @@ export class NavbarViewComponent implements AfterViewInit, OnDestroy, IRouterLin
   }
 
   public navigateTo(index: number): void {
-    this.selectedTabIndex = index;
-    this._router.navigate(this.tabs[index].route);
+    this.selectTabByClick(index);
   }
 
-  initUpdateTabLinkChanges(): void {
-    this._navbar.observeForTabLinkChange$
-      .subscribe(_ => this.initSelectedRoute());
-  }
-
-  private initSelectedRoute(): void {
-
-
-    /**
-     * Find URL
-     */
-    if (!this.url) {
-      timer(100).subscribe(_ => {
-        this.initSelectedRoute();
-      });
-      return;
-    }
-
-    /**
-     * Find index for TabLink
-     */
-    const index = this.tabs.findIndex(t =>
-      (asLink(this.url).toLowerCase() === t.name.toLowerCase())
-    );
-
-    if (index > -1) {
-      this.selectedTabIndex = index;
-    }
-  }
-
-  private initUrl(): void {
+  private initTabActiveRoute(): void {
     this._router.events.pipe(
-      tap((route: any) => {
-        if (route.url) {
-          this.url = route.url;
-          this.initSelectedRoute();
-        }
-      }),
+      filter((event) => event instanceof NavigationEnd),
+      tap(this.selectTabByIndex.bind(this)),
+      takeUntil(this.destroySubject$)
     ).subscribe();
   }
 
+  private selectTabByIndex(): void {
+    this.selectedTabIndex = this.getTabIndex;
+  }
+
+  private selectTabByClick(index: number): void {
+    if (index !== this.selectedTabIndex) {
+      this.selectedTabIndex = index;
+      this._router.navigate(this.tabs[index].route);
+    }
+  }
 }

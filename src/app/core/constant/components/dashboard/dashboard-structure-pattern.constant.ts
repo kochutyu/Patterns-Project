@@ -2,7 +2,7 @@ import {EStructurePattern} from "../../../enums/patterns/structure-pattern/struc
 import {EStructurePatternImg} from "../../../enums/patterns/structure-pattern/structure-pattern-img.enum";
 
 import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
-import {StructurePatternRoutingConstant} from "../../routing/structure-pattern-routing.constant";
+import {StructurePatternRoutingConstant} from "../../routing/preview/structure-pattern-routing.constant";
 
 
 export class DashboardStructurePatternConstant {

@@ -11,11 +11,4 @@ export class NotFoundComponent {
   @Input() message: string;
   @Input() button: IRouterButton;
 
-  @Output()
-  onRoute: EventEmitter<void> = new EventEmitter<void>();
-
-  public emitClick(): void{
-    this.onRoute.emit();
-  }
-
 }

@@ -1,5 +1,5 @@
-<mat-tab-group (selectedTabChange)="navigateTo($event.index)" [selectedIndex]="selectedTabIndex">
-  <mat-tab [disabled]="i === 0" *ngFor="let tab of tabs; let i = index" [label]="tab.name">
+<mat-tab-group (selectedTabChange)="navigateTo($event.index)" [selectedIndex]="selectedTabIndex" #tabLink>
+  <mat-tab [disabled]="i === 0 ? !(disabledTab$ | async) : false" *ngFor="let tab of tabs; let i = index" [label]="tab.name" >
     <ng-template mat-tab-label>
       <mat-icon *ngIf="tab.icon" aria-hidden="false" aria-label="Example home icon">{{tab.icon}}</mat-icon>
       <span>{{tab.name}}</span>

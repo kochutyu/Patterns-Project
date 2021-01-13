@@ -1,17 +1,14 @@
-import {ChangeDetectionStrategy, Component} from "@angular/core";
-import {combineLatest, Observable} from "rxjs";
-import {Store} from "@ngrx/store";
-import {SDashboard} from "../../core/store/selectors/dashboard/dashboard.selectors";
-import {IDashboardCategoryList} from "../../core/interfaces/category/dashboard-category-list.interface";
-import {map} from "rxjs/operators";
+import {Component} from "@angular/core";
 import {IRouterButton} from "../../core/interfaces/router/router-button.interface";
-import {NavbarService} from "../../core/services/navbar.service";
 import {DashboardNotFoundConstant} from "../../core/constant/components/dashboard/dashboard-not-found.constant";
-import {IRouterLink} from "../../core/interfaces/router/router-link.interface";
+import {combineLatest, Observable} from "rxjs";
+import {IDashboardCategoryList} from "../../core/interfaces/category/dashboard-category-list.interface";
+import {SDashboard} from "../../core/store/selectors/dashboard/dashboard.selectors";
+import {map} from "rxjs/operators";
+import {Store} from "@ngrx/store";
 import {Router} from "@angular/router";
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./dashboard.component.scss'],
   template: `
     <ng-container *ngIf="(categoryPatterns$ | async).length > 0; else empty">
@@ -27,18 +24,19 @@ import {Router} from "@angular/router";
 
     <ng-template #empty>
       <mat-card class="full-page">
-        <app-not-found [message]="notFoundMessage" [button]="notFoundButton" (onRoute)="updateNavbar()"></app-not-found>
+        <app-not-found [message]="notFoundMessage" [button]="notFoundButton"></app-not-found>
       </mat-card>
     </ng-template>
   `
 })
-export class DashboardComponent implements IRouterLink{
+export class DashboardComponent {
 
   public notFoundButton: IRouterButton = DashboardNotFoundConstant.getLinkInfo;
   public notFoundMessage = DashboardNotFoundConstant.getMessage;
 
   private createPatterns$: Observable<IDashboardCategoryList> = this._store.select(SDashboard.createPatterns.selectCategory);
   private structurePatterns$: Observable<IDashboardCategoryList> = this._store.select(SDashboard.structurePatterns.selectCategory);
+
   public categoryPatterns$: Observable<IDashboardCategoryList[]> = combineLatest([
     this.createPatterns$,
     this.structurePatterns$
@@ -49,13 +47,8 @@ export class DashboardComponent implements IRouterLink{
 
   constructor(
     private _store: Store,
-    private _navbar: NavbarService,
-    private _router: Router
+    private _router: Router,
   ) {
-  }
-
-  public updateNavbar(): void {
-    this._navbar.updateTabLink();
   }
 
   public navigateTo(route: Array<string>): void {

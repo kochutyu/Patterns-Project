@@ -13,7 +13,7 @@ import {SettingsService} from "../../core/services/settings.service";
 
 const routes: Routes = [
   {
-    path: '', component: SettingsComponent, children: []
+    path: '', component: SettingsComponent
   }
 ]
 

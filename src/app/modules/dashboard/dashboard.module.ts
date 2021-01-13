@@ -6,12 +6,14 @@ import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 
 const routs: Routes = [
-  {path: '', pathMatch: 'full', component: DashboardComponent}
+  {
+    path: '', pathMatch: 'full', component: DashboardComponent
+  }
 ]
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

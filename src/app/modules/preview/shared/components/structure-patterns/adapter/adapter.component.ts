@@ -3,9 +3,9 @@ import {Component} from "@angular/core";
 
 @Component({
   template: `
-    Builder llol
+    Adapter
   `
 })
-export class BuilderComponent {
+export class AdapterComponent {
 
 }

@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Router} from "@angular/router";
+import {CreatePatternRoutingConstant} from "./core/constant/routing/preview/create-pattern-routing.constant";
 
 @Component({
   selector: 'app-root',
@@ -15,4 +17,10 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   `,
 })
 export class AppComponent {
+
+  constructor(
+    private _router: Router,
+  ) {
+    console.log(CreatePatternRoutingConstant.getFactory.route)
+  }
 }

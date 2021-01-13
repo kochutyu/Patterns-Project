@@ -9,8 +9,8 @@ export class AppRoutingConstant {
   static get getPreviewRoute(): ITabLink {
     return {
       name: 'preview',
-      route: ['preview'],
-      path: 'preview'
+      route: ['preview-pattern'],
+      path: 'preview-pattern'
     };
   }
 

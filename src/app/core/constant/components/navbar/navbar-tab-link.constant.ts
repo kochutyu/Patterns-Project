@@ -6,19 +6,22 @@ export class NavbarTabLinkConstant {
   static get getTabLink(): Array<ITabLink> {
     return [
       {
+        icon: 'preview',
         name: AppRoutingConstant.getPreviewRoute.name.toUpperCase(),
         route: AppRoutingConstant.getPreviewRoute.route,
-        icon: 'preview'
+        path: AppRoutingConstant.getPreviewRoute.path
       },
       {
+        icon: 'dashboard',
         name: AppRoutingConstant.getDashboardRoute.name.split('-').map(v => v.toUpperCase()).join(' '),
         route: AppRoutingConstant.getDashboardRoute.route,
-        icon: 'dashboard'
+        path: AppRoutingConstant.getDashboardRoute.path
       },
       {
+        icon: 'settings',
         name: AppRoutingConstant.getSettingsRoute.name.toUpperCase(),
         route: AppRoutingConstant.getSettingsRoute.route,
-        icon: 'settings'
+        path: AppRoutingConstant.getSettingsRoute.path
       }
     ]
   }
