@@ -1,8 +1,12 @@
 import {Component} from "@angular/core";
 
 @Component({
+  styleUrls: ['./preview.component.scss'],
   template: `
-    <router-outlet></router-outlet>
+    <mat-card class="category">
+      <router-outlet></router-outlet>
+    </mat-card>
   `
 })
-export class PreviewComponent {}
+export class PreviewComponent {
+}

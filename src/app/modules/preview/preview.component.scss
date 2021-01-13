@@ -1,0 +1,9 @@
+.category {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  background: #daebff;
+
+  @media screen and (max-width: 1250px) {
+    margin: 20px;
+  }
+}
