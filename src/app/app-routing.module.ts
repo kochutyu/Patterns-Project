@@ -12,13 +12,11 @@ const routes: Routes = [
   },
   {
     path: AppRoutingConstant.getDashboardRoute.path,
-    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate: [AppGuard]
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path: AppRoutingConstant.getSettingsRoute.path,
-    loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsModule),
-    canActivate: [AppGuard]
+    loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsModule)
   },
   {path: '**', redirectTo: AppRoutingConstant.getHomeRoute.path}
 ];
