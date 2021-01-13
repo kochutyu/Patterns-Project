@@ -5,8 +5,8 @@ import {MaterialModule} from './modules/material.module';
 import {NavbarViewComponent} from "./components/navbar-view/navbar-view.component";
 import {BlockCategoryComponent} from "./components/block-category/block-category.component";
 import {BlockCategoryListComponent} from "./components/block-category/block-category-list/block-category-list.component";
-import { CardComponent } from './components/card/card.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import {CardComponent} from './components/card/card.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 

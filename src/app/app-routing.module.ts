@@ -1,27 +1,34 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AppRoutingConstant} from "./core/constant/routing/app-routing.constant";
+import {AppGuard} from "./core/guards/app.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: AppRoutingConstant.getHomeRoute.path, pathMatch: 'full'},
   {
     path: AppRoutingConstant.getPreviewRoute.path,
-    loadChildren: () => import('./modules/preview/preview.module').then(m => m.PreviewModule)
+    loadChildren: () => import('./modules/preview/preview.module').then(m => m.PreviewModule),
+    canActivate: [AppGuard]
   },
   {
     path: AppRoutingConstant.getDashboardRoute.path,
-    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AppGuard]
   },
   {
     path: AppRoutingConstant.getSettingsRoute.path,
-    loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsModule)
+    loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsModule),
+    canActivate: [AppGuard]
   },
   {path: '**', redirectTo: AppRoutingConstant.getHomeRoute.path}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    AppGuard
+  ]
 })
 export class AppRoutingModule {
 }

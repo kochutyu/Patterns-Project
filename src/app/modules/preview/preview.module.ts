@@ -29,7 +29,7 @@ const routes: Routes = [
         path: StructurePatternRoutingConstant.getComposite.path,
         loadChildren: () => import('./shared/components/structure-patterns/composite/composite.module').then(m => m.CompositeModule)
       },
-    ],
+    ]
   }
 ];
 

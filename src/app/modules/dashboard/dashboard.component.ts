@@ -7,6 +7,7 @@ import {SDashboard} from "../../core/store/selectors/dashboard/dashboard.selecto
 import {map} from "rxjs/operators";
 import {Store} from "@ngrx/store";
 import {Router} from "@angular/router";
+import {TogglePreviewRouting} from "../../core/store/actions/routing/routing.actions";
 
 @Component({
   styleUrls: ['./dashboard.component.scss'],
@@ -53,5 +54,6 @@ export class DashboardComponent {
 
   public navigateTo(route: Array<string>): void {
     this._router.navigate(route);
+    this._store.dispatch(TogglePreviewRouting({status: true}));
   }
 }
