@@ -1,0 +1,77 @@
+<mat-card class="category">
+  <mat-card-header>
+    <mat-card-title>Dashboard</mat-card-title>
+    <mat-card-subtitle>Total: <strong>{{(tesla.getTotalCars$() | async).total}}</strong></mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+
+<ng-container *ngFor="let block of [0, 1]; let blockIndex = index">
+
+  <mat-card class="category" *ngFor="let factory of tesla.getFactories; let i = index; trackBy: factoryBy">
+
+    <ng-container [ngSwitch]="block">
+
+      <ng-container *ngSwitchCase="0">
+        <mat-card-header>
+          <mat-card-title>Factory of {{factory.specification}}</mat-card-title>
+        </mat-card-header>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="1">
+        <mat-card-header>
+          <mat-card-title>Store of {{factory.specification}}</mat-card-title>
+          <mat-card-subtitle>
+            Total: <strong>{{(factory.factoryStatistic$() | async).total}}</strong>
+          </mat-card-subtitle>
+        </mat-card-header>
+      </ng-container>
+
+    </ng-container>
+
+    <mat-card-content>
+      <div class="patterns center">
+
+        <ng-container [ngSwitch]="block">
+
+          <ng-container *ngSwitchCase="0">
+            <app-card class="card tesla-card" (click)="crateModel(i, j)" [data]="model"
+                      *ngFor="let model of models.getModelsCardPreview; let j = index">
+            </app-card>
+          </ng-container>
+
+          <ng-container class="test" *ngSwitchCase="1">
+            <div *ngFor="let model of (factory.getCars$() | async) ; let row = index" class="store-col">
+              <div class="store-col__img">
+                <app-card class="card tesla-card" [classList]="['card']" [data]="model.card"></app-card>
+                <div class="store-col__img-footer">
+                  TOTAL: {{model.total}}
+                </div>
+              </div>
+              <ul *ngFor="let car of model.cars;" class="store-col__car">
+                <li>
+                  <strong>Model</strong>: {{car?.model | splitStr: '_' | joinStr: ' '}}
+                </li>
+                <li>
+                  <strong>Price</strong>: {{car?.price}}
+                </li>
+                <li>
+                  <strong>Speed</strong>: {{car?.speed}}
+                </li>
+                <li>
+                  <strong>Rating</strong>: {{car?.rating}}
+                </li>
+                <li>
+                  <strong>Description</strong>: {{car?.description}}
+                </li>
+              </ul>
+            </div>
+          </ng-container>
+
+        </ng-container>
+
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+</ng-container>
