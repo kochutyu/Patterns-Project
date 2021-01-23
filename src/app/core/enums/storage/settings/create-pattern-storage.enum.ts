@@ -1,4 +1,5 @@
 export enum ECreatePatternStorage {
-  FACTORY_STATE = '[Settings] Factory State',
+  FACTORY_METHOD = '[Settings] Factory Method State',
+  ABSTRACT_FACTORY = '[Settings] Abstract Factory State',
   BUILDER_STATE = '[Settings] Builder State'
 }

@@ -15,9 +15,14 @@ export class SettingsCreatePatternSelectors {
     (state: ICreatePatternState | IStructurePatternState) => state
   );
 
-  public static selectFactoryPattern = createSelector(
+  public static selectAbstractFactoryPattern = createSelector(
     SettingsCreatePatternSelectors.selectPatternState,
-    (state: ICreatePatternState): ICheckboxPattern => state.factoryPattern
+    (state: ICreatePatternState): ICheckboxPattern => state.abstractFactoryPattern
+  );
+
+  public static selectFactoryMethodPattern = createSelector(
+    SettingsCreatePatternSelectors.selectPatternState,
+    (state: ICreatePatternState): ICheckboxPattern => state.factoryMethodPattern
   );
 
   public static selectBuilderPattern = createSelector(

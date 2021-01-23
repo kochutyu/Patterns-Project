@@ -6,10 +6,10 @@ import {Actions, Effect, ofType} from "@ngrx/effects";
 import {UpdateDashboardCreatePattern} from "../../actions/dashboard/dashboard.action";
 
 import {
-  TurnOffBuilderPatternAction,
-  TurnOffFactoryPatternAction,
-  TurnOnBuilderPatternAction,
-  TurnOnFactoryPatternAction
+  TurnOffAbstractFactoryPatternAction,
+  TurnOffBuilderPatternAction, TurnOffFactoryMethodPatternAction,
+  TurnOnAbstractFactoryPatternAction,
+  TurnOnBuilderPatternAction, TurnOnFactoryMethodPatternAction
 } from "../../actions/settings/create-pattern.action";
 
 import {PatternStateStorage} from "../../../storage/routs/pattern-state.storage";
@@ -25,10 +25,19 @@ import {SettingsService} from "../../../services/settings.service";
 export class CreatePatternEffects {
 
   @Effect({dispatch: false})
-  factoryState$ = this._actions$.pipe(
-    ofType(TurnOnFactoryPatternAction, TurnOffFactoryPatternAction),
-    switchMap(() => this._store.select(SSettings.createPatterns.selectFactoryPattern).pipe(take(1))),
-    tap(v => PatternStateStorage.setState(ECreatePatternStorage.FACTORY_STATE, v.isChecked)),
+  abstractFactoryState$ = this._actions$.pipe(
+    ofType(TurnOnAbstractFactoryPatternAction, TurnOffAbstractFactoryPatternAction),
+    switchMap(() => this._store.select(SSettings.createPatterns.selectAbstractFactoryPattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(ECreatePatternStorage.ABSTRACT_FACTORY, v.isChecked)),
+    tap(v => this._store.dispatch(UpdateDashboardCreatePattern({id: v.value}))),
+    this._settings.saveDashboardCreatePatternToStoragePipe
+  )
+
+  @Effect({dispatch: false})
+  factoryMethodState$ = this._actions$.pipe(
+    ofType(TurnOnFactoryMethodPatternAction, TurnOffFactoryMethodPatternAction),
+    switchMap(() => this._store.select(SSettings.createPatterns.selectFactoryMethodPattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(ECreatePatternStorage.FACTORY_METHOD, v.isChecked)),
     tap(v => this._store.dispatch(UpdateDashboardCreatePattern({id: v.value}))),
     this._settings.saveDashboardCreatePatternToStoragePipe
   )

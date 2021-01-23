@@ -3,9 +3,9 @@ import {Component} from "@angular/core";
 
 @Component({
   template: `
-    Builder
+    Factory Method
   `
 })
-export class BuilderComponent {
+export class FactoryMethodComponent {
 
 }

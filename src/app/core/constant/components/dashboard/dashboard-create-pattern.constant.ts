@@ -12,10 +12,16 @@ export class DashboardCreatePatternConstant {
       categoryName: 'Creation Design Patterns',
       content: [
         {
-          id: ECreatePattern.FACTORY,
-          title: ECreatePattern.FACTORY,
+          id: ECreatePattern.ABSTRACT_FACTORY,
+          title: ECreatePattern.ABSTRACT_FACTORY,
           imgSrc: ECreatePatternImg.FACTORY,
-          route: CreatePatternRoutingConstant.getFactory.route
+          route: CreatePatternRoutingConstant.getAbstractFactory.route
+        },
+        {
+          id: ECreatePattern.FACTORY_METHOD,
+          title: ECreatePattern.FACTORY_METHOD,
+          imgSrc: ECreatePatternImg.FACTORY,
+          route: CreatePatternRoutingConstant.getFactoryMethod.route
         },
         {
           id: ECreatePattern.BUILDER,
@@ -32,10 +38,16 @@ export class DashboardCreatePatternConstant {
       categoryName: 'Creation Design Patterns',
       content: [
         {
-          id: ECreatePattern.FACTORY,
-          title: ECreatePattern.FACTORY,
+          id: ECreatePattern.ABSTRACT_FACTORY,
+          title: ECreatePattern.ABSTRACT_FACTORY,
           imgSrc: ECreatePatternImg.FACTORY,
-          route: CreatePatternRoutingConstant.getFactory.route
+          route: CreatePatternRoutingConstant.getAbstractFactory.route
+        },
+        {
+          id: ECreatePattern.FACTORY_METHOD,
+          title: ECreatePattern.FACTORY_METHOD,
+          imgSrc: ECreatePatternImg.FACTORY,
+          route: CreatePatternRoutingConstant.getFactoryMethod.route
         }
       ]
     }

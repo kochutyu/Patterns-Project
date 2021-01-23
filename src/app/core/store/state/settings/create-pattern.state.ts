@@ -6,19 +6,26 @@ import {ECreatePattern} from "../../../enums/patterns/create-pattern/create-patt
 import {ICreatePatternState} from "../../../interfaces/store/state/settings/patterns/create-pattern-state.interface";
 import {ICheckboxPattern} from "../../../interfaces/components/form/checkbox-pattern.interface";
 
-export const initialFactoryPatternState: ICheckboxPattern = {
+export const initialAbstractFactoryPatternState: ICheckboxPattern = {
   id: 'create-pattern-1',
-  value: ECreatePattern.FACTORY,
-  isChecked: PatternStateStorage.getState(ECreatePatternStorage.FACTORY_STATE, true)
+  value: ECreatePattern.ABSTRACT_FACTORY,
+  isChecked: PatternStateStorage.getState(ECreatePatternStorage.ABSTRACT_FACTORY, true)
+};
+
+export const initialFactoryMethodPatternState: ICheckboxPattern = {
+  id: 'create-pattern-2',
+  value: ECreatePattern.FACTORY_METHOD,
+  isChecked: PatternStateStorage.getState(ECreatePatternStorage.FACTORY_METHOD, true)
 };
 
 export const initialBuilderPatternState: ICheckboxPattern = {
-  id: 'create-pattern-2',
+  id: 'create-pattern-3',
   value: ECreatePattern.BUILDER,
   isChecked: PatternStateStorage.getState(ECreatePatternStorage.BUILDER_STATE, false)
 };
 
 export const initialCreatePatternState: ICreatePatternState = {
-  factoryPattern: initialFactoryPatternState,
+  abstractFactoryPattern: initialAbstractFactoryPatternState,
+  factoryMethodPattern: initialFactoryMethodPatternState,
   builderPattern: initialBuilderPatternState
 };

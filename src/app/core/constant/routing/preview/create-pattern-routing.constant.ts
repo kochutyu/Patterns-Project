@@ -3,11 +3,19 @@ import {AppRoutingConstant} from "../app-routing.constant";
 
 export class CreatePatternRoutingConstant {
 
-  static get getFactory(): ITabLink {
+  static get getAbstractFactory(): ITabLink {
     return {
-      name: 'factory',
-      route: [...AppRoutingConstant.getPreviewRoute.route, 'factory'],
-      path: 'factory'
+      name: 'abstract factory',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'abstract-factory'],
+      path: 'abstract-factory'
+    };
+  }
+
+  static get getFactoryMethod(): ITabLink {
+    return {
+      name: 'factory method',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'factory-method'],
+      path: 'factory-method'
     };
   }
 

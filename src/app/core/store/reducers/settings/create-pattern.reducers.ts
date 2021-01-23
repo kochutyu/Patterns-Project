@@ -3,10 +3,12 @@ import {createReducer, on} from "@ngrx/store";
 import {AppState} from "../../state/app.state";
 
 import {
+  TurnOffAbstractFactoryPatternAction,
   TurnOffBuilderPatternAction,
-  TurnOffFactoryPatternAction,
+  TurnOffFactoryMethodPatternAction,
+  TurnOnAbstractFactoryPatternAction,
   TurnOnBuilderPatternAction,
-  TurnOnFactoryPatternAction
+  TurnOnFactoryMethodPatternAction,
 } from "../../actions/settings/create-pattern.action";
 
 import {USettings} from "../../../utils/store/settings.utils";
@@ -17,11 +19,17 @@ import {IStructurePatternState} from "../../../interfaces/store/state/settings/p
 
 const _createPatternReducer = createReducer(
   AppState.initialState.settingsCreatePatterns,
-  on(TurnOnFactoryPatternAction, (state: ICreatePatternState) =>
-    USettings.patternReduce({state, keyName: 'factoryPattern', value: true})
+  on(TurnOnAbstractFactoryPatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'abstractFactoryPattern', value: true})
   ),
-  on(TurnOffFactoryPatternAction, (state: ICreatePatternState) =>
-    USettings.patternReduce({state, keyName: 'factoryPattern', value: false})
+  on(TurnOffAbstractFactoryPatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'abstractFactoryPattern', value: false})
+  ),
+  on(TurnOnFactoryMethodPatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'factoryMethodPattern', value: true})
+  ),
+  on(TurnOffFactoryMethodPatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'factoryMethodPattern', value: false})
   ),
   on(TurnOnBuilderPatternAction, (state: ICreatePatternState) =>
     USettings.patternReduce({state, keyName: 'builderPattern', value: true})

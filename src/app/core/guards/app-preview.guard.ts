@@ -21,11 +21,10 @@ export class AppPreviewGuard implements CanActivate {
 
     const urls: Array<string> = state.url.split('/').filter(url => !!url);
 
-    console.log(urls)
     return this._store.select(SAppRouting.preview.selectActiveStatus).pipe(
       map(status => {
 
-        const blockPreview: boolean = this.isBlockPreview(urls, status) || this.isBlockPreviewPattern(urls, status);
+        const blockPreview: boolean = this.isBlockPreview(urls, status) || this.isBlockPreviewPattern(urls);
         RouteStorage.set(urls);
 
         if (blockPreview) {
@@ -45,7 +44,7 @@ export class AppPreviewGuard implements CanActivate {
     return (notPreviewRoute && status) || notFullPreviewRoute;
   }
 
-  private isBlockPreviewPattern(urls: Array<string>, status: boolean): boolean {
+  private isBlockPreviewPattern(urls: Array<string>): boolean {
     const previousRoute = RouteStorage.get();
     const newPatternOnRoute: boolean = previousRoute[1] !== urls[1] && !!previousRoute[1];
     const isPreviewRoute: boolean = urls[0] === AppRoutingConstant.getPreviewRoute.path && !!urls[0];

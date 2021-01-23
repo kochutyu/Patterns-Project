@@ -3,10 +3,9 @@ import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {IAppState} from "../../../../../core/interfaces/store/state/app-state.interface";
 import {
-  TurnOffBuilderPatternAction,
-  TurnOffFactoryPatternAction,
-  TurnOnBuilderPatternAction,
-  TurnOnFactoryPatternAction
+  TurnOffAbstractFactoryPatternAction,
+  TurnOffBuilderPatternAction, TurnOffFactoryMethodPatternAction, TurnOnAbstractFactoryPatternAction,
+  TurnOnBuilderPatternAction, TurnOnFactoryMethodPatternAction,
 } from "../../../../../core/store/actions/settings/create-pattern.action";
 import {IBlockCategoryList} from "../../../../../core/interfaces/category/block-category-list.interface";
 import {MatSlideToggleChange} from "@angular/material/slide-toggle";
@@ -30,10 +29,16 @@ export class CreatePatternsComponent {
   ) {
   }
 
-  handleFactory(state: boolean): void {
+  handleAbstractFactory(state: boolean): void {
     state ?
-      this._store.dispatch(TurnOnFactoryPatternAction()) :
-      this._store.dispatch(TurnOffFactoryPatternAction());
+      this._store.dispatch(TurnOnAbstractFactoryPatternAction()) :
+      this._store.dispatch(TurnOffAbstractFactoryPatternAction());
+  }
+
+  handleFactoryMethod(state: boolean): void {
+    state ?
+      this._store.dispatch(TurnOnFactoryMethodPatternAction()) :
+      this._store.dispatch(TurnOffFactoryMethodPatternAction());
   }
 
   handleBuilder(state: boolean): void {
@@ -45,9 +50,12 @@ export class CreatePatternsComponent {
   dispatchPattern(event: MatSlideToggleChange): void {
     switch (event.source.id) {
       case 'create-pattern-1':
-        this.handleFactory(event.checked);
+        this.handleAbstractFactory(event.checked);
         break;
       case 'create-pattern-2':
+        this.handleFactoryMethod(event.checked);
+        break;
+      case 'create-pattern-3':
         this.handleBuilder(event.checked);
         break;
     }

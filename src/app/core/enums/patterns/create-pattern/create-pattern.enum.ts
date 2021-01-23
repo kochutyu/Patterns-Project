@@ -1,4 +1,5 @@
 export enum ECreatePattern {
-  FACTORY = 'Factory',
+  FACTORY_METHOD = 'Factory method',
+  ABSTRACT_FACTORY = 'Abstract factory',
   BUILDER = 'Builder'
 }

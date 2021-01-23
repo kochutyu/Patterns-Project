@@ -3,9 +3,9 @@ import {Component} from "@angular/core";
 
 @Component({
   template: `
-    Factory
+    Abstract Method
   `
 })
-export class FactoryComponent {
+export class AbstractFactoryComponent {
 
 }

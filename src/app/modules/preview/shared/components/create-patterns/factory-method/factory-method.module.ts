@@ -1,21 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FactoryComponent} from "./factory.component";
+import {FactoryMethodComponent} from "./factory-method.component";
 import {RouterModule, Routes} from "@angular/router";
 
 
 const routes: Routes = [
-  {path: '', component: FactoryComponent, pathMatch: 'full'}
+  {path: '', component: FactoryMethodComponent, pathMatch: 'full'}
 ]
 
 @NgModule({
   declarations: [
-    FactoryComponent
+    FactoryMethodComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ]
 })
-export class FactoryModule {
+export class FactoryMethodModule {
 }

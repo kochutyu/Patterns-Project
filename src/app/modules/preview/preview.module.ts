@@ -10,8 +10,12 @@ const routes: Routes = [
   {
     path: '', component: PreviewComponent, children: [
       {
-        path: CreatePatternRoutingConstant.getFactory.path,
-        loadChildren: () => import('./shared/components/create-patterns/factory/factory.module').then(m => m.FactoryModule)
+        path: CreatePatternRoutingConstant.getAbstractFactory.path,
+        loadChildren: () => import('./shared/components/create-patterns/abstract-factory/abstract-factory.module').then(m => m.AbstractFactoryModule)
+      },
+      {
+        path: CreatePatternRoutingConstant.getFactoryMethod.path,
+        loadChildren: () => import('./shared/components/create-patterns/factory-method/factory-method.module').then(m => m.FactoryMethodModule)
       },
       {
         path: CreatePatternRoutingConstant.getBuilder.path,
