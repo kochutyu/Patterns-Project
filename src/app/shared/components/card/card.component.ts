@@ -10,6 +10,12 @@ import {IDashboardCard} from "../../../core/interfaces/components/card/dashboard
 export class CardComponent {
 
   @Input()
-  data: IDashboardCard;
+  public data: IDashboardCard;
+
+  @Input()
+  public isClick: boolean;
+
+  @Input()
+  public classList: Array<string>
 
 }

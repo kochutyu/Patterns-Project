@@ -1,8 +1,8 @@
-<div class="card hover-active">
+<div class="card hover-active" [class]="classList">
   <div class="card-space">
     {{data.title}}
   </div>
-  <div class="card-img hover-center">
+  <div class="card-img hover-center" [isClick]="isClick" appCursorCenter>
     <figure class="card-img-figure">
       <img alt="factory" [src]="data.imgSrc">
     </figure>

@@ -1,3 +1,6 @@
+$hover: rgba(63, 81, 181, 0.3);
+$click: rgba(243, 255, 22, 0.3);
+
 .hover-center figure {
   position: relative;
 }
@@ -27,16 +30,20 @@
   height: 100%;
   background: red;
   z-index: 2;
-  background: rgba(63, 81, 181, 0.3);
+  background: $hover;
 }
 
 .hover-center figure:hover::before {
   -webkit-animation: circle .5s;
-  animation: circle .75s;
-  background: rgba(63, 81, 181, 0.3);
+  animation: circle-hover .75s;
+  background: $hover;
 }
 
-@-webkit-keyframes circle {
+.hover-center.click figure:hover::before {
+  background: $click;
+}
+
+@-webkit-keyframes circle-hover {
   0% {
     opacity: 1;
     background: unset;
@@ -48,11 +55,41 @@
     width: 200%;
     height: 200%;
     opacity: 0;
-    background: rgba(63, 81, 181, 0.3);
+    background: $hover;
   }
 }
 
-@keyframes circle {
+@keyframes circle-hover {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes circle-click {
+  0% {
+    opacity: 1;
+    background: unset;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    background: $click;
+  }
+}
+
+@keyframes circle-click {
   0% {
     opacity: 1;
   }
