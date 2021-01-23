@@ -9,6 +9,9 @@ import {CardComponent} from './components/card/card.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
+import { CursorCenterDirective } from './directives/cursor-center.directive';
+import { JoinPipe } from './pipes/join.pipe';
+import { SplitPipe } from './pipes/split.pipe';
 
 
 @NgModule({
@@ -18,6 +21,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     BlockCategoryListComponent,
     CardComponent,
     NotFoundComponent,
+    CursorCenterDirective,
+    JoinPipe,
+    SplitPipe,
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     BlockCategoryComponent,
     BlockCategoryListComponent,
     CardComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    JoinPipe,
+    SplitPipe
   ]
 })
 export class SharedModule {

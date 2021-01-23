@@ -1,8 +1,8 @@
 <div class="card hover-active" [class]="classList">
   <div class="card-space">
-    {{data.title}}
+    {{data.title | splitStr: '_' | joinStr: ' '}}
   </div>
-  <div class="card-img hover-center" [isClick]="isClick" appCursorCenter>
+  <div class="card-img hover-center">
     <figure class="card-img-figure">
       <img alt="factory" [src]="data.imgSrc">
     </figure>

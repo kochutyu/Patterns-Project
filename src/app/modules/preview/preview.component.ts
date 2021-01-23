@@ -3,9 +3,10 @@ import {Component} from "@angular/core";
 @Component({
   styleUrls: ['./preview.component.scss'],
   template: `
-    <mat-card class="category">
-      <router-outlet></router-outlet>
-    </mat-card>
+    <router-outlet></router-outlet>
+<!--    <mat-card class="category">-->
+<!--      -->
+<!--    </mat-card>-->
   `
 })
 export class PreviewComponent {

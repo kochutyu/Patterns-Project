@@ -1,7 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FactoryMethodComponent} from "./factory-method.component";
 import {RouterModule, Routes} from "@angular/router";
+
+import {FactoryMethodComponent} from "./factory-method.component";
+
+import {TeslaService} from "./shared/services/tesla.service";
+import {SharedModule} from "../../../../../../shared/shared.module";
 
 
 const routes: Routes = [
@@ -14,7 +18,11 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
+  ],
+  providers: [
+    TeslaService
   ]
 })
 export class FactoryMethodModule {

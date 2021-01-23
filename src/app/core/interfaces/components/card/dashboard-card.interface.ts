@@ -6,7 +6,7 @@ import {EStructurePatternImg} from "../../../enums/patterns/structure-pattern/st
 
 export interface IDashboardCard {
   title: string;
-  imgSrc: ECreatePatternImg | EStructurePatternImg;
-  route: Array<string> | string;
+  imgSrc: ECreatePatternImg | EStructurePatternImg | string;
+  route?: Array<string> | string;
   id?: ECreatePattern | EStructurePattern;
 }
