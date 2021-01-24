@@ -6,9 +6,15 @@ import {
   TurnOffAdapterPatternAction,
   TurnOffBridgePatternAction,
   TurnOffCompositePatternAction,
+  TurnOffDecoratorPatternAction,
+  TurnOffFacadePatternAction,
+  TurnOffFlyweightPatternAction, TurnOffProxyPatternAction,
   TurnOnAdapterPatternAction,
   TurnOnBridgePatternAction,
-  TurnOnCompositePatternAction
+  TurnOnCompositePatternAction,
+  TurnOnDecoratorPatternAction,
+  TurnOnFacadePatternAction,
+  TurnOnFlyweightPatternAction, TurnOnProxyPatternAction
 } from "../../actions/settings/structure-pattern.action";
 
 import {USettings} from "../../../utils/store/settings.utils";
@@ -36,6 +42,30 @@ const _structurePatternReducer = createReducer(
   ),
   on(TurnOffCompositePatternAction, (state: IStructurePatternState) =>
     USettings.patternReduce({state, keyName: 'compositePattern', value: false})
+  ),
+  on(TurnOnDecoratorPatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'decoratorPattern', value: true})
+  ),
+  on(TurnOffDecoratorPatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'decoratorPattern', value: false})
+  ),
+  on(TurnOnFacadePatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'facadePattern', value: true})
+  ),
+  on(TurnOffFacadePatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'facadePattern', value: false})
+  ),
+  on(TurnOnFlyweightPatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'flyweightPattern', value: true})
+  ),
+  on(TurnOffFlyweightPatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'flyweightPattern', value: false})
+  ),
+  on(TurnOnProxyPatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'proxyPattern', value: true})
+  ),
+  on(TurnOffProxyPatternAction, (state: IStructurePatternState) =>
+    USettings.patternReduce({state, keyName: 'proxyPattern', value: false})
   ),
 );
 

@@ -29,6 +29,26 @@ export class SettingsStructurePatternSelectors {
     (state: IStructurePatternState): ICheckboxPattern => state.compositePattern
   );
 
+  public static selectDecoratorPattern = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState): ICheckboxPattern => state.decoratorPattern
+  );
+
+  public static selectFacadePattern = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState): ICheckboxPattern => state.facadePattern
+  );
+
+  public static selectFlyweightPattern = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState): ICheckboxPattern => state.flyweightPattern
+  );
+
+  public static selectProxyPattern = createSelector(
+    SettingsStructurePatternSelectors.selectPatternState,
+    (state: IStructurePatternState): ICheckboxPattern => state.proxyPattern
+  );
+
   public static selectBlockListPipe = pipe(
     select(SettingsStructurePatternSelectors.selectCategory),
     map((v): Array<ICheckboxPattern> => Object.keys(v).map(key => v[key])),

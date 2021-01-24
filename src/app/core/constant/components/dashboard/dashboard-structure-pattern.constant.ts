@@ -28,6 +28,29 @@ export class DashboardStructurePatternConstant {
           title: EStructurePattern.COMPOSITE,
           imgSrc: EStructurePatternImg.COMPOSITE,
           route: StructurePatternRoutingConstant.getComposite.route
+        },
+        {
+          id: EStructurePattern.DECORATOR,
+          title: EStructurePattern.DECORATOR,
+          imgSrc: EStructurePatternImg.DECORATOR,
+          route: StructurePatternRoutingConstant.getDecorator.route
+        },
+        {
+          id: EStructurePattern.FACADE,
+          title: EStructurePattern.FACADE,
+          imgSrc: EStructurePatternImg.FACADE,
+          route: StructurePatternRoutingConstant.getFacade.route
+        }, {
+          id: EStructurePattern.FLYWEIGHT,
+          title: EStructurePattern.FLYWEIGHT,
+          imgSrc: EStructurePatternImg.FLYWEIGHT,
+          route: StructurePatternRoutingConstant.getFlyweight.route
+        }
+        , {
+          id: EStructurePattern.PROXY,
+          title: EStructurePattern.PROXY,
+          imgSrc: EStructurePatternImg.PROXY,
+          route: StructurePatternRoutingConstant.getProxy.route
         }
       ]
     }
@@ -36,7 +59,7 @@ export class DashboardStructurePatternConstant {
   static get initialState(): IDashboardCategoryList {
     return {
       categoryName: 'Structure Design Patterns',
-      content: []
+      content: this.getPatternsList.content
     }
   }
 

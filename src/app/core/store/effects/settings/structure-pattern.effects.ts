@@ -9,9 +9,15 @@ import {
   TurnOffAdapterPatternAction,
   TurnOffBridgePatternAction,
   TurnOffCompositePatternAction,
+  TurnOffDecoratorPatternAction,
+  TurnOffFacadePatternAction,
+  TurnOffFlyweightPatternAction, TurnOffProxyPatternAction,
   TurnOnAdapterPatternAction,
   TurnOnBridgePatternAction,
-  TurnOnCompositePatternAction
+  TurnOnCompositePatternAction,
+  TurnOnDecoratorPatternAction,
+  TurnOnFacadePatternAction,
+  TurnOnFlyweightPatternAction, TurnOnProxyPatternAction
 } from "../../actions/settings/structure-pattern.action";
 
 import {UpdateDashboardStructurePattern} from "../../actions/dashboard/dashboard.action";
@@ -48,6 +54,42 @@ export class StructurePatternEffects {
     ofType(TurnOnCompositePatternAction, TurnOffCompositePatternAction),
     switchMap(() => this._store.select(SSettings.structurePatterns.selectCompositePattern).pipe(take(1))),
     tap(v => PatternStateStorage.setState(EStructurePatternStorage.COMPOSITE_STATE, v.isChecked)),
+    tap(v => this._store.dispatch(UpdateDashboardStructurePattern({id: v.value}))),
+    this._settings.saveDashboardStructurePatternToStoragePipe
+  )
+
+  @Effect({dispatch: false})
+  decoratorState$ = this._actions$.pipe(
+    ofType(TurnOnDecoratorPatternAction, TurnOffDecoratorPatternAction),
+    switchMap(() => this._store.select(SSettings.structurePatterns.selectDecoratorPattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(EStructurePatternStorage.DECORATOR, v.isChecked)),
+    tap(v => this._store.dispatch(UpdateDashboardStructurePattern({id: v.value}))),
+    this._settings.saveDashboardStructurePatternToStoragePipe
+  )
+
+  @Effect({dispatch: false})
+  facadeState$ = this._actions$.pipe(
+    ofType(TurnOnFacadePatternAction, TurnOffFacadePatternAction),
+    switchMap(() => this._store.select(SSettings.structurePatterns.selectFacadePattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(EStructurePatternStorage.FACADE, v.isChecked)),
+    tap(v => this._store.dispatch(UpdateDashboardStructurePattern({id: v.value}))),
+    this._settings.saveDashboardStructurePatternToStoragePipe
+  )
+
+  @Effect({dispatch: false})
+  flyweightState$ = this._actions$.pipe(
+    ofType(TurnOnFlyweightPatternAction, TurnOffFlyweightPatternAction),
+    switchMap(() => this._store.select(SSettings.structurePatterns.selectFlyweightPattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(EStructurePatternStorage.FLYWEIGHT, v.isChecked)),
+    tap(v => this._store.dispatch(UpdateDashboardStructurePattern({id: v.value}))),
+    this._settings.saveDashboardStructurePatternToStoragePipe
+  )
+
+  @Effect({dispatch: false})
+  proxyState$ = this._actions$.pipe(
+    ofType(TurnOnProxyPatternAction, TurnOffProxyPatternAction),
+    switchMap(() => this._store.select(SSettings.structurePatterns.selectProxyPattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(EStructurePatternStorage.PROXY, v.isChecked)),
     tap(v => this._store.dispatch(UpdateDashboardStructurePattern({id: v.value}))),
     this._settings.saveDashboardStructurePatternToStoragePipe
   )

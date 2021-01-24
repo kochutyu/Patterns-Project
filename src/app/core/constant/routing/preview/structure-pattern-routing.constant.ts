@@ -27,4 +27,36 @@ export class StructurePatternRoutingConstant {
     };
   }
 
+  static get getDecorator(): ITabLink {
+    return {
+      name: 'decorator',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'decorator'],
+      path: 'decorator'
+    };
+  }
+
+  static get getFacade(): ITabLink {
+    return {
+      name: 'facade',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'facade'],
+      path: 'facade'
+    };
+  }
+
+  static get getFlyweight(): ITabLink {
+    return {
+      name: 'flyweight',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'flyweight'],
+      path: 'flyweight'
+    };
+  }
+
+  static get getProxy(): ITabLink {
+    return {
+      name: 'proxy',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'proxy'],
+      path: 'proxy'
+    };
+  }
+
 }

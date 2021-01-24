@@ -7,23 +7,51 @@ import {EStructurePattern} from "../../../enums/patterns/structure-pattern/struc
 export const initialAdapterPatternState: ICheckboxPattern = {
   id: 'structure-pattern-1',
   value: EStructurePattern.ADAPTER,
-  isChecked: PatternStateStorage.getState(EStructurePatternStorage.ADAPTER_STATE, false)
+  isChecked: PatternStateStorage.getState(EStructurePatternStorage.ADAPTER_STATE, true)
 };
 
 export const initialBridgePatternState: ICheckboxPattern = {
   id: 'structure-pattern-2',
   value: EStructurePattern.BRIDGE,
-  isChecked: PatternStateStorage.getState(EStructurePatternStorage.BRIDGE_STATE, false)
+  isChecked: PatternStateStorage.getState(EStructurePatternStorage.BRIDGE_STATE, true)
 };
 
 export const initialCompositePatternState: ICheckboxPattern = {
   id: 'structure-pattern-3',
   value: EStructurePattern.COMPOSITE,
-  isChecked: PatternStateStorage.getState(EStructurePatternStorage.COMPOSITE_STATE, false)
+  isChecked: PatternStateStorage.getState(EStructurePatternStorage.COMPOSITE_STATE, true)
+};
+
+export const initialDecoratorPatternState: ICheckboxPattern = {
+  id: 'structure-pattern-4',
+  value: EStructurePattern.DECORATOR,
+  isChecked: PatternStateStorage.getState(EStructurePatternStorage.DECORATOR, true)
+};
+
+export const initialFacadePatternState: ICheckboxPattern = {
+  id: 'structure-pattern-5',
+  value: EStructurePattern.FACADE,
+  isChecked: PatternStateStorage.getState(EStructurePatternStorage.FACADE, true)
+};
+
+export const initialFlyweightPatternState: ICheckboxPattern = {
+  id: 'structure-pattern-6',
+  value: EStructurePattern.FLYWEIGHT,
+  isChecked: PatternStateStorage.getState(EStructurePatternStorage.FLYWEIGHT, true)
+};
+
+export const initialProxyPatternState: ICheckboxPattern = {
+  id: 'structure-pattern-7',
+  value: EStructurePattern.PROXY,
+  isChecked: PatternStateStorage.getState(EStructurePatternStorage.PROXY, true)
 };
 
 export const initialStructurePatternState: IStructurePatternState = {
   adapterPattern: initialAdapterPatternState,
   bridgePattern: initialBridgePatternState,
-  compositePattern: initialCompositePatternState
+  compositePattern: initialCompositePatternState,
+  decoratorPattern: initialDecoratorPatternState,
+  facadePattern: initialFacadePatternState,
+  flyweightPattern: initialFlyweightPatternState,
+  proxyPattern: initialProxyPatternState
 };

@@ -9,6 +9,10 @@ import {StructurePatternRoutingConstant} from "../../core/constant/routing/previ
 const routes: Routes = [
   {
     path: '', component: PreviewComponent, children: [
+
+
+
+      // CREATION DESIGN PATTERNS
       {
         path: CreatePatternRoutingConstant.getAbstractFactory.path,
         loadChildren: () => import('./shared/components/create-patterns/abstract-factory/abstract-factory.module').then(m => m.AbstractFactoryModule)
@@ -29,6 +33,10 @@ const routes: Routes = [
         path: CreatePatternRoutingConstant.getSingleton.path,
         loadChildren: () => import('./shared/components/create-patterns/singleton/singleton.module').then(m => m.SingletonModule)
       },
+
+
+
+      // STRUCTURE DESIGN PATTERNS
       {
         path: StructurePatternRoutingConstant.getAdapter.path,
         loadChildren: () => import('./shared/components/structure-patterns/adapter/adapter.module').then(m => m.AdapterModule)
@@ -41,6 +49,27 @@ const routes: Routes = [
         path: StructurePatternRoutingConstant.getComposite.path,
         loadChildren: () => import('./shared/components/structure-patterns/composite/composite.module').then(m => m.CompositeModule)
       },
+
+      {
+        path: StructurePatternRoutingConstant.getDecorator.path,
+        loadChildren: () => import('./shared/components/structure-patterns/decorator/decorator.module').then(m => m.DecoratorModule)
+      },
+      {
+        path: StructurePatternRoutingConstant.getFacade.path,
+        loadChildren: () => import('./shared/components/structure-patterns/facade/facade.module').then(m => m.FacadeModule)
+      },
+      {
+        path: StructurePatternRoutingConstant.getFlyweight.path,
+        loadChildren: () => import('./shared/components/structure-patterns/flyweight/flyweight.module').then(m => m.FlyweightModule)
+      },
+      {
+        path: StructurePatternRoutingConstant.getProxy.path,
+        loadChildren: () => import('./shared/components/structure-patterns/proxy/proxy.module').then(m => m.ProxyModule)
+      },
+
+
+
+      // ACTION DESIGN PATTERNS
     ]
   }
 ];
