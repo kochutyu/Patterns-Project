@@ -1,0 +1,16 @@
+<div *ngFor="let branch of tree; let i = index">
+  <ul>
+    <li>
+      <div class="component">
+        <h2>Col {{i + 1}}</h2>
+        <button (click)="addNewBranch(branch)" color="primary" mat-raised-button>
+          <mat-icon>add</mat-icon>
+        </button>
+        <button (click)="removeBranch(branch.getParent(), branch)" color="warn" mat-raised-button>
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+      <app-tree *ngIf="branch.getChildren()" [tree]="branch.getChildren()" class="tree"></app-tree>
+    </li>
+  </ul>
+</div>

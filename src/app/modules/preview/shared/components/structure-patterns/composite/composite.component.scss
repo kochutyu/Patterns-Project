@@ -1,0 +1,28 @@
+.tree{
+  display: flex;
+}
+
+.component{
+  background: var(--white);
+  border: 3px solid var(--dark-blue);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.docs{
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  li{
+    margin: 2px;
+  }
+
+  &__info{
+    display: flex;
+    align-items: center;
+    span{
+      margin-left: 10px;
+    }
+  }
+}

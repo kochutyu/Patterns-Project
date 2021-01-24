@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CompositeComponent} from "./composite.component";
 import {RouterModule, Routes} from "@angular/router";
+import {SharedModule} from "../../../../../../shared/shared.module";
+import { TreeComponent } from './shared/components/tree/tree.component';
 
 
 const routes: Routes = [
@@ -10,11 +12,13 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CompositeComponent
+    CompositeComponent,
+    TreeComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ]
 })
 export class CompositeModule {
