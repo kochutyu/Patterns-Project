@@ -88,8 +88,8 @@ export class AdapterComponent implements OnInit {
     this.form = new FormGroup({
       sellOption: new FormControl(this.exchanger.pairs[0]), // UAH
       buyOption: new FormControl(this.exchanger.pairs[1]), // USD
-      sellInput: new FormControl(1),
-      buyInput: new FormControl(1)
+      sellInput: new FormControl(null),
+      buyInput: new FormControl(null)
     })
   }
 
