@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {AdapterComponent} from "./adapter.component";
 import {SharedModule} from "../../../../../../shared/shared.module";
-import {MatOptionModule} from "@angular/material/core";
 import {ExchangerService} from "./shared/services/exchanger.service";
 import {ReactiveFormsModule} from "@angular/forms";
 

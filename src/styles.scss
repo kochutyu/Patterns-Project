@@ -8,3 +8,10 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+pre{
+  background: var(--white);
+  border: 3px solid var(--dark-blue);
+  border-radius: 10px;
+  padding: 20px;
+}
