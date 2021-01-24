@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="submit()" autocomplete="off">
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input type="text" matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Surname</mat-label>
+    <input type="text" matInput formControlName="surname">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Age</mat-label>
+    <input type="number" matInput formControlName="age">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Salary</mat-label>
+    <input type="number" matInput formControlName="salary">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Max work days</mat-label>
+    <input type="text" matInput formControlName="term">
+  </mat-form-field>
+
+  <button [disabled]="form.invalid" type="submit" mat-raised-button color="primary">Submit</button>
+</form>

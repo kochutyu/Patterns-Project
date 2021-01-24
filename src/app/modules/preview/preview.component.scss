@@ -1,6 +1,6 @@
 .category {
   max-width: 1200px;
-  margin: 20px auto 0;
+  margin: 20px auto;
   background: #daebff;
 
   @media screen and (max-width: 1260px) {
@@ -28,4 +28,24 @@
     }
   }
 
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+
+.light-card {
+  margin: 10px 0;
+  border: 3px solid var(--dark-blue);
+  list-style-type: none;
+  background: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
