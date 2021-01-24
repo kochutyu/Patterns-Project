@@ -67,10 +67,6 @@ export class FactoryMethodComponent{
   constructor(
     public tesla: TeslaService
   ) {
-    this.tesla.getCars$
-      .subscribe(res => {
-        console.log(res, 'CARS')
-      })
   }
 
   public create(): void {
