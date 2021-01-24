@@ -71,7 +71,7 @@ export class SingletonComponent implements OnInit, OnDestroy {
   }
 
   public connect(): void {
-    this.server.searchServer('yura');
+    this.server.searchServer(this.pattern.value);
   }
 
   public disconnect(): void {
