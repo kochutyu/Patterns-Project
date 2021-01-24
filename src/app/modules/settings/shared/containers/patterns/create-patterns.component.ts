@@ -4,8 +4,13 @@ import {Store} from "@ngrx/store";
 import {IAppState} from "../../../../../core/interfaces/store/state/app-state.interface";
 import {
   TurnOffAbstractFactoryPatternAction,
-  TurnOffBuilderPatternAction, TurnOffFactoryMethodPatternAction, TurnOnAbstractFactoryPatternAction,
-  TurnOnBuilderPatternAction, TurnOnFactoryMethodPatternAction,
+  TurnOffBuilderPatternAction,
+  TurnOffFactoryMethodPatternAction,
+  TurnOffPrototypePatternAction, TurnOffSingletonPatternAction,
+  TurnOnAbstractFactoryPatternAction,
+  TurnOnBuilderPatternAction,
+  TurnOnFactoryMethodPatternAction,
+  TurnOnPrototypePatternAction, TurnOnSingletonPatternAction,
 } from "../../../../../core/store/actions/settings/create-pattern.action";
 import {IBlockCategoryList} from "../../../../../core/interfaces/category/block-category-list.interface";
 import {MatSlideToggleChange} from "@angular/material/slide-toggle";
@@ -47,7 +52,20 @@ export class CreatePatternsComponent {
       this._store.dispatch(TurnOffBuilderPatternAction());
   }
 
+  handlePrototype(state: boolean): void {
+    state ?
+      this._store.dispatch(TurnOnPrototypePatternAction()) :
+      this._store.dispatch(TurnOffPrototypePatternAction());
+  }
+
+  handleSingleton(state: boolean): void {
+    state ?
+      this._store.dispatch(TurnOnSingletonPatternAction()) :
+      this._store.dispatch(TurnOffSingletonPatternAction());
+  }
+
   dispatchPattern(event: MatSlideToggleChange): void {
+    console.log(event)
     switch (event.source.id) {
       case 'create-pattern-1':
         this.handleAbstractFactory(event.checked);
@@ -57,6 +75,12 @@ export class CreatePatternsComponent {
         break;
       case 'create-pattern-3':
         this.handleBuilder(event.checked);
+        break;
+      case 'create-pattern-4':
+        this.handlePrototype(event.checked);
+        break;
+      case 'create-pattern-5':
+        this.handleSingleton(event.checked);
         break;
     }
   }

@@ -28,6 +28,18 @@ export class DashboardCreatePatternConstant {
           title: ECreatePattern.BUILDER,
           imgSrc: ECreatePatternImg.BUILDER,
           route: CreatePatternRoutingConstant.getBuilder.route
+        },
+        {
+          id: ECreatePattern.PROTOTYPE,
+          title: ECreatePattern.PROTOTYPE,
+          imgSrc: ECreatePatternImg.PROTOTYPE,
+          route: CreatePatternRoutingConstant.getPrototype.route
+        },
+        {
+          id: ECreatePattern.SINGLETON,
+          title: ECreatePattern.SINGLETON,
+          imgSrc: ECreatePatternImg.SINGLETON,
+          route: CreatePatternRoutingConstant.getSingleton.route
         }
       ]
     }

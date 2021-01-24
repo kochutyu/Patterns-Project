@@ -24,8 +24,22 @@ export const initialBuilderPatternState: ICheckboxPattern = {
   isChecked: PatternStateStorage.getState(ECreatePatternStorage.BUILDER_STATE, false)
 };
 
+export const initialPrototypePatternState: ICheckboxPattern = {
+  id: 'create-pattern-4',
+  value: ECreatePattern.PROTOTYPE,
+  isChecked: PatternStateStorage.getState(ECreatePatternStorage.PROTOTYPE, false)
+};
+
+export const initialSingletonPatternState: ICheckboxPattern = {
+  id: 'create-pattern-5',
+  value: ECreatePattern.SINGLETON,
+  isChecked: PatternStateStorage.getState(ECreatePatternStorage.SINGLETON, false)
+};
+
 export const initialCreatePatternState: ICreatePatternState = {
   abstractFactoryPattern: initialAbstractFactoryPatternState,
   factoryMethodPattern: initialFactoryMethodPatternState,
-  builderPattern: initialBuilderPatternState
+  builderPattern: initialBuilderPatternState,
+  prototypePattern: initialPrototypePatternState,
+  singletonPattern: initialSingletonPatternState
 };

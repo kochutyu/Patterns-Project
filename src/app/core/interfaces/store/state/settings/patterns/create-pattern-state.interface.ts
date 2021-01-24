@@ -4,4 +4,6 @@ export interface ICreatePatternState {
   factoryMethodPattern: ICheckboxPattern;
   abstractFactoryPattern: ICheckboxPattern;
   builderPattern: ICheckboxPattern;
+  prototypePattern: ICheckboxPattern;
+  singletonPattern: ICheckboxPattern;
 }

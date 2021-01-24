@@ -7,9 +7,15 @@ import {UpdateDashboardCreatePattern} from "../../actions/dashboard/dashboard.ac
 
 import {
   TurnOffAbstractFactoryPatternAction,
-  TurnOffBuilderPatternAction, TurnOffFactoryMethodPatternAction,
+  TurnOffBuilderPatternAction,
+  TurnOffFactoryMethodPatternAction,
+  TurnOffPrototypePatternAction,
+  TurnOffSingletonPatternAction,
   TurnOnAbstractFactoryPatternAction,
-  TurnOnBuilderPatternAction, TurnOnFactoryMethodPatternAction
+  TurnOnBuilderPatternAction,
+  TurnOnFactoryMethodPatternAction,
+  TurnOnPrototypePatternAction,
+  TurnOnSingletonPatternAction
 } from "../../actions/settings/create-pattern.action";
 
 import {PatternStateStorage} from "../../../storage/routs/pattern-state.storage";
@@ -47,6 +53,24 @@ export class CreatePatternEffects {
     ofType(TurnOnBuilderPatternAction, TurnOffBuilderPatternAction),
     switchMap(() => this._store.select(SSettings.createPatterns.selectBuilderPattern).pipe(take(1))),
     tap(v => PatternStateStorage.setState(ECreatePatternStorage.BUILDER_STATE, v.isChecked)),
+    tap(v => this._store.dispatch(UpdateDashboardCreatePattern({id: v.value}))),
+    this._settings.saveDashboardCreatePatternToStoragePipe
+  )
+
+  @Effect({dispatch: false})
+  prototypeState$ = this._actions$.pipe(
+    ofType(TurnOnPrototypePatternAction, TurnOffPrototypePatternAction),
+    switchMap(() => this._store.select(SSettings.createPatterns.selectPrototypePattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(ECreatePatternStorage.PROTOTYPE, v.isChecked)),
+    tap(v => this._store.dispatch(UpdateDashboardCreatePattern({id: v.value}))),
+    this._settings.saveDashboardCreatePatternToStoragePipe
+  )
+
+  @Effect({dispatch: false})
+  singletonState$ = this._actions$.pipe(
+    ofType(TurnOnSingletonPatternAction, TurnOffSingletonPatternAction),
+    switchMap(() => this._store.select(SSettings.createPatterns.selectSingletonPattern).pipe(take(1))),
+    tap(v => PatternStateStorage.setState(ECreatePatternStorage.SINGLETON, v.isChecked)),
     tap(v => this._store.dispatch(UpdateDashboardCreatePattern({id: v.value}))),
     this._settings.saveDashboardCreatePatternToStoragePipe
   )

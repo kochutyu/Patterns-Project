@@ -30,6 +30,16 @@ export class SettingsCreatePatternSelectors {
     (state: ICreatePatternState): ICheckboxPattern => state.builderPattern
   );
 
+  public static selectPrototypePattern = createSelector(
+    SettingsCreatePatternSelectors.selectPatternState,
+    (state: ICreatePatternState): ICheckboxPattern => state.prototypePattern
+  );
+
+  public static selectSingletonPattern = createSelector(
+    SettingsCreatePatternSelectors.selectPatternState,
+    (state: ICreatePatternState): ICheckboxPattern => state.singletonPattern
+  );
+
   public static selectBlockListPipe = pipe(
     select(SettingsCreatePatternSelectors.selectCategory),
     map((v): Array<ICheckboxPattern> => Object.keys(v).map(key => v[key])),

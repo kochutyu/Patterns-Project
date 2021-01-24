@@ -5,10 +5,10 @@ import {AppState} from "../../state/app.state";
 import {
   TurnOffAbstractFactoryPatternAction,
   TurnOffBuilderPatternAction,
-  TurnOffFactoryMethodPatternAction,
+  TurnOffFactoryMethodPatternAction, TurnOffPrototypePatternAction, TurnOffSingletonPatternAction,
   TurnOnAbstractFactoryPatternAction,
   TurnOnBuilderPatternAction,
-  TurnOnFactoryMethodPatternAction,
+  TurnOnFactoryMethodPatternAction, TurnOnPrototypePatternAction, TurnOnSingletonPatternAction,
 } from "../../actions/settings/create-pattern.action";
 
 import {USettings} from "../../../utils/store/settings.utils";
@@ -36,6 +36,18 @@ const _createPatternReducer = createReducer(
   ),
   on(TurnOffBuilderPatternAction, (state: ICreatePatternState) =>
     USettings.patternReduce({state, keyName: 'builderPattern', value: false})
+  ),
+  on(TurnOnPrototypePatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'prototypePattern', value: true})
+  ),
+  on(TurnOffPrototypePatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'prototypePattern', value: false})
+  ),
+  on(TurnOnSingletonPatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'singletonPattern', value: true})
+  ),
+  on(TurnOffSingletonPatternAction, (state: ICreatePatternState) =>
+    USettings.patternReduce({state, keyName: 'singletonPattern', value: false})
   ),
 );
 

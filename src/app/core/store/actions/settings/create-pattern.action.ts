@@ -12,3 +12,11 @@ export const TurnOffFactoryMethodPatternAction = createAction('[Settings] Turn O
 // Builder
 export const TurnOnBuilderPatternAction = createAction('[Settings] Turn On Builder Pattern');
 export const TurnOffBuilderPatternAction = createAction('[Settings] Turn Off Builder Pattern');
+
+// Prototype
+export const TurnOnPrototypePatternAction = createAction('[Settings] Turn On Prototype Pattern');
+export const TurnOffPrototypePatternAction = createAction('[Settings] Turn Off Prototype Pattern');
+
+// Singleton
+export const TurnOnSingletonPatternAction = createAction('[Settings] Turn On Singleton Pattern');
+export const TurnOffSingletonPatternAction = createAction('[Settings] Turn Off Singleton Pattern');

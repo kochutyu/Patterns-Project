@@ -27,4 +27,20 @@ export class CreatePatternRoutingConstant {
     };
   }
 
+  static get getPrototype(): ITabLink {
+    return {
+      name: 'prototype',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'prototype'],
+      path: 'prototype'
+    };
+  }
+
+  static get getSingleton(): ITabLink {
+    return {
+      name: 'singleton',
+      route: [...AppRoutingConstant.getPreviewRoute.route, 'singleton'],
+      path: 'singleton'
+    };
+  }
+
 }

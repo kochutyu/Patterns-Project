@@ -22,6 +22,14 @@ const routes: Routes = [
         loadChildren: () => import('./shared/components/create-patterns/builder/builder.module').then(m => m.BuilderModule)
       },
       {
+        path: CreatePatternRoutingConstant.getPrototype.path,
+        loadChildren: () => import('./shared/components/create-patterns/prototype/prototype.module').then(m => m.PrototypeModule)
+      },
+      {
+        path: CreatePatternRoutingConstant.getSingleton.path,
+        loadChildren: () => import('./shared/components/create-patterns/singleton/singleton.module').then(m => m.SingletonModule)
+      },
+      {
         path: StructurePatternRoutingConstant.getAdapter.path,
         loadChildren: () => import('./shared/components/structure-patterns/adapter/adapter.module').then(m => m.AdapterModule)
       },
