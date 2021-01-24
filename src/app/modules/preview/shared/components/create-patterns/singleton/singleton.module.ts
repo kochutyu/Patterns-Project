@@ -5,6 +5,9 @@ import {RouterModule, Routes} from "@angular/router";
 import {SingletonComponent} from "./singleton.component";
 
 import {SharedModule} from "../../../../../../shared/shared.module";
+import {LoaderService} from "../../../../../../core/services/loader.service";
+import {ServerServices} from "./services/server.services";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 const routes: Routes = [
@@ -18,7 +21,12 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    LoaderService,
+    ServerServices
   ]
 })
 export class SingletonModule {

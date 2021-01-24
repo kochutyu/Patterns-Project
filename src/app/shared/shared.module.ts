@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { CursorCenterDirective } from './directives/cursor-center.directive';
 import { JoinPipe } from './pipes/join.pipe';
 import { SplitPipe } from './pipes/split.pipe';
+import {LoaderComponent} from "./components/loader/loader.component";
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { SplitPipe } from './pipes/split.pipe';
     CursorCenterDirective,
     JoinPipe,
     SplitPipe,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { SplitPipe } from './pipes/split.pipe';
     CardComponent,
     NotFoundComponent,
     JoinPipe,
-    SplitPipe
+    SplitPipe,
+    LoaderComponent
   ]
 })
 export class SharedModule {

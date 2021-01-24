@@ -1,0 +1,13 @@
+.dns{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__info{
+    text-align: center;
+
+    img{
+      width: 100%;
+    }
+  }
+}
