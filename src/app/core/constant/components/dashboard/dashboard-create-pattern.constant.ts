@@ -48,20 +48,7 @@ export class DashboardCreatePatternConstant {
   static get initialState(): IDashboardCategoryList {
     return {
       categoryName: 'Creation Design Patterns',
-      content: [
-        {
-          id: ECreatePattern.ABSTRACT_FACTORY,
-          title: ECreatePattern.ABSTRACT_FACTORY,
-          imgSrc: ECreatePatternImg.FACTORY,
-          route: CreatePatternRoutingConstant.getAbstractFactory.route
-        },
-        {
-          id: ECreatePattern.FACTORY_METHOD,
-          title: ECreatePattern.FACTORY_METHOD,
-          imgSrc: ECreatePatternImg.FACTORY,
-          route: CreatePatternRoutingConstant.getFactoryMethod.route
-        }
-      ]
+      content: this.getPatternsList.content
     }
   }
 
