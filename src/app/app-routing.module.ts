@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadingStrategy, RouterModule, Routes} from '@angular/router';
 import {AppRoutingConstant} from "./core/constant/routing/app-routing.constant";
 import {AppPreviewGuard} from "./core/guards/app-preview.guard";
+import {RoutingConfig} from "./core/config/routing.config";
 
 const routes: Routes = [
   {path: '', redirectTo: AppRoutingConstant.getHomeRoute.path, pathMatch: 'full'},
@@ -24,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, RoutingConfig.option)],
   exports: [RouterModule],
   providers: [
     AppPreviewGuard
