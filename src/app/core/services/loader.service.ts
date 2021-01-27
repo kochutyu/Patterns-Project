@@ -1,8 +1,11 @@
 import {Injectable} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+
 import {LoaderComponent} from "../../shared/components/loader/loader.component";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoaderService {
 
   private selectedDialog: MatDialogRef<LoaderComponent, any>;

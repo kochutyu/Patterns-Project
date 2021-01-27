@@ -1,10 +1,10 @@
-<div class="card hover-active" [class]="classList">
+<div [class]="classList" class="card hover-active">
   <div class="card-space">
     {{data.title | splitStr: '_' | joinStr: ' '}}
   </div>
   <div class="card-img hover-center">
     <figure class="card-img-figure">
-      <img alt="factory" [src]="data.imgSrc">
+      <img [src]="data.imgSrc" alt="factory">
     </figure>
   </div>
 </div>

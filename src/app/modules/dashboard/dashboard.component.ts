@@ -1,12 +1,16 @@
 import {Component} from "@angular/core";
-import {IRouterButton} from "../../core/interfaces/router/router-button.interface";
-import {DashboardNotFoundConstant} from "../../core/constant/components/dashboard/dashboard-not-found.constant";
 import {combineLatest, Observable} from "rxjs";
-import {IDashboardCategoryList} from "../../core/interfaces/category/dashboard-category-list.interface";
-import {SDashboard} from "../../core/store/selectors/dashboard/dashboard.selectors";
 import {map} from "rxjs/operators";
 import {Store} from "@ngrx/store";
 import {Router} from "@angular/router";
+
+import {IRouterButton} from "../../shared/interfaces/router/router-button.interface";
+import {IDashboardCategoryList} from "../../shared/interfaces/category/dashboard-category-list.interface";
+
+import {DashboardNotFoundConstant} from "../../core/constant/components/dashboard/dashboard-not-found.constant";
+
+import {SDashboard} from "../../core/store/selectors/dashboard/dashboard.selectors";
+
 import {TogglePreviewRouting} from "../../core/store/actions/routing/routing.actions";
 
 @Component({

@@ -24,8 +24,6 @@ export class PrototypeService {
       this._cloneUser(data);
     }
 
-    console.log(this._allMoney)
-
     this._allMoney$.next(this._allMoney);
   }
 

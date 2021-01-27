@@ -1,6 +1,5 @@
 import {createAction, props} from "@ngrx/store";
 
-
 export const UpdateDashboardCreatePattern = createAction(
   '[Dashboard] Update Create Pattern',
   props<{ id: any }>()

@@ -1,7 +1,7 @@
-import {ECreatePattern} from "../../../enums/patterns/create-pattern/create-pattern.enum";
-import {ECreatePatternImg} from "../../../enums/patterns/create-pattern/create-pattern-img.enum";
+import {ECreatePattern} from "../../../../shared/enums/patterns/create-pattern/create-pattern.enum";
+import {ECreatePatternImg} from "../../../../shared/enums/patterns/create-pattern/create-pattern-img.enum";
 
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+import {IDashboardCategoryList} from "../../../../shared/interfaces/category/dashboard-category-list.interface";
 import {CreatePatternRoutingConstant} from "../../routing/preview/create-pattern-routing.constant";
 
 

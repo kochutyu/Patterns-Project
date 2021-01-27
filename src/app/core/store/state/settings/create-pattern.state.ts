@@ -1,10 +1,10 @@
 import {PatternStateStorage} from "../../../storage/routs/pattern-state.storage";
 
-import {ECreatePatternStorage} from "../../../enums/storage/settings/create-pattern-storage.enum";
-import {ECreatePattern} from "../../../enums/patterns/create-pattern/create-pattern.enum";
+import {ECreatePatternStorage} from "../../../../shared/enums/storage/settings/create-pattern-storage.enum";
+import {ECreatePattern} from "../../../../shared/enums/patterns/create-pattern/create-pattern.enum";
 
-import {ICreatePatternState} from "../../../interfaces/store/state/settings/patterns/create-pattern-state.interface";
-import {ICheckboxPattern} from "../../../interfaces/components/form/checkbox-pattern.interface";
+import {ICreatePatternState} from "../../../../shared/interfaces/store/state/settings/patterns/create-pattern-state.interface";
+import {ICheckboxPattern} from "../../../../shared/interfaces/components/form/checkbox-pattern.interface";
 
 export const initialAbstractFactoryPatternState: ICheckboxPattern = {
   id: 'create-pattern-1',

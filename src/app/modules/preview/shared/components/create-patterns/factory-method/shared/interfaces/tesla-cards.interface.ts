@@ -1,4 +1,4 @@
-import {IDashboardCategoryList} from "../../../../../../../../core/interfaces/category/dashboard-category-list.interface";
+import {IDashboardCategoryList} from "../../../../../../../../shared/interfaces/category/dashboard-category-list.interface";
 
 export type title = Pick<IDashboardCategoryList, 'categoryName'>;
 

@@ -1,4 +1,4 @@
-import {IFirebase} from "../interfaces/config/firebase.interface";
+import {IFirebase} from "../../shared/interfaces/config/firebase.interface";
 
 export class FirebaseConfig {
 

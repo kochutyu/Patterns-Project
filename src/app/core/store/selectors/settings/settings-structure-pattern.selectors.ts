@@ -2,10 +2,10 @@ import {map} from "rxjs/operators";
 import {pipe} from "rxjs";
 import {createSelector, select} from "@ngrx/store";
 
-import {IAppState} from "../../../interfaces/store/state/app-state.interface";
-import {ICheckboxPattern} from "../../../interfaces/components/form/checkbox-pattern.interface";
-import {ICreatePatternState} from "../../../interfaces/store/state/settings/patterns/create-pattern-state.interface";
-import {IStructurePatternState} from "../../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
+import {IAppState} from "../../../../shared/interfaces/store/state/app-state.interface";
+import {ICheckboxPattern} from "../../../../shared/interfaces/components/form/checkbox-pattern.interface";
+import {ICreatePatternState} from "../../../../shared/interfaces/store/state/settings/patterns/create-pattern-state.interface";
+import {IStructurePatternState} from "../../../../shared/interfaces/store/state/settings/patterns/structure-pattern-state.interface";
 
 export class SettingsStructurePatternSelectors {
 

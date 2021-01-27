@@ -5,7 +5,7 @@ $click: rgba(243, 255, 22, 0.3);
   position: relative;
 }
 
-.hover-center figure::before{
+.hover-center figure::before {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,7 +21,7 @@ $click: rgba(243, 255, 22, 0.3);
   opacity: 0;
 }
 
-.hover-center figure:hover::after{
+.hover-center figure:hover::after {
   content: '';
   position: absolute;
   top: 0;

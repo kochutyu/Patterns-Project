@@ -24,7 +24,7 @@ import {UpdateDashboardStructurePattern} from "../../actions/dashboard/dashboard
 
 import {SSettings} from "../../selectors/settings/settings.selectors";
 
-import {EStructurePatternStorage} from "../../../enums/storage/settings/structure-pattern-storage.enum";
+import {EStructurePatternStorage} from "../../../../shared/enums/storage/settings/structure-pattern-storage.enum";
 
 import {SettingsService} from "../../../services/settings.service";
 

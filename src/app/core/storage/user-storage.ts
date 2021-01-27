@@ -1,4 +1,4 @@
-import {EStorageType} from "../enums/storage/srorage-type.enum";
+import {EStorageType} from "../../shared/enums/storage/srorage-type.enum";
 
 
 export class UserStorage {

@@ -1,4 +1,4 @@
-import {IRouterButton} from "../../../interfaces/router/router-button.interface";
+import {IRouterButton} from "../../../../shared/interfaces/router/router-button.interface";
 
 export class DashboardNotFoundConstant {
 

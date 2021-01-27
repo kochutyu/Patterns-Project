@@ -13,35 +13,29 @@ import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 
 
+const MATERIAL = [
+  MatTabsModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatIconModule,
+  MatCardModule,
+  MatButtonModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatOptionModule,
+  MatSelectModule
+];
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatTabsModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatOptionModule,
-    MatSelectModule
+    ...MATERIAL
   ],
   exports: [
-    MatTabsModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatOptionModule,
-    MatSelectModule
+    ...MATERIAL
   ]
 })
 export class MaterialModule {

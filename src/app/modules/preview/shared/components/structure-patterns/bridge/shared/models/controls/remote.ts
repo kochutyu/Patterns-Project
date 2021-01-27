@@ -8,10 +8,6 @@ export class Remote {
     this.device = device;
   }
 
-  public test(): void{
-    console.log('123123')
-  }
-
   public setVolume(number): void {
     this.device.setVolume(number);
   }
@@ -33,7 +29,6 @@ export class Remote {
   }
 
   public togglePower(): void {
-    console.log(this.device.isEnabled())
     if (this.device.isEnabled()) {
       this.device.disable();
     } else {

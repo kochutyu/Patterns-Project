@@ -20,8 +20,8 @@ import {
 
 import {SSettings} from "../../../../../core/store/selectors/settings/settings.selectors";
 
-import {IAppState} from "../../../../../core/interfaces/store/state/app-state.interface";
-import {IBlockCategoryList} from "../../../../../core/interfaces/category/block-category-list.interface";
+import {IAppState} from "../../../../../shared/interfaces/store/state/app-state.interface";
+import {IBlockCategoryList} from "../../../../../shared/interfaces/category/block-category-list.interface";
 
 @Component({
   selector: 'app-structure-patterns',

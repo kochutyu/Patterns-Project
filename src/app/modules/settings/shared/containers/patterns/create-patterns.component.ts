@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {IAppState} from "../../../../../core/interfaces/store/state/app-state.interface";
+import {IAppState} from "../../../../../shared/interfaces/store/state/app-state.interface";
 import {
   TurnOffAbstractFactoryPatternAction,
   TurnOffBuilderPatternAction,
@@ -12,7 +12,7 @@ import {
   TurnOnFactoryMethodPatternAction,
   TurnOnPrototypePatternAction, TurnOnSingletonPatternAction,
 } from "../../../../../core/store/actions/settings/create-pattern.action";
-import {IBlockCategoryList} from "../../../../../core/interfaces/category/block-category-list.interface";
+import {IBlockCategoryList} from "../../../../../shared/interfaces/category/block-category-list.interface";
 import {MatSlideToggleChange} from "@angular/material/slide-toggle";
 import {SSettings} from "../../../../../core/store/selectors/settings/settings.selectors";
 
@@ -65,7 +65,6 @@ export class CreatePatternsComponent {
   }
 
   dispatchPattern(event: MatSlideToggleChange): void {
-    console.log(event)
     switch (event.source.id) {
       case 'create-pattern-1':
         this.handleAbstractFactory(event.checked);

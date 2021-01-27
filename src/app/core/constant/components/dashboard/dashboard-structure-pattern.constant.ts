@@ -1,7 +1,7 @@
-import {EStructurePattern} from "../../../enums/patterns/structure-pattern/structure-pattern.enum";
-import {EStructurePatternImg} from "../../../enums/patterns/structure-pattern/structure-pattern-img.enum";
+import {EStructurePattern} from "../../../../shared/enums/patterns/structure-pattern/structure-pattern.enum";
+import {EStructurePatternImg} from "../../../../shared/enums/patterns/structure-pattern/structure-pattern-img.enum";
 
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+import {IDashboardCategoryList} from "../../../../shared/interfaces/category/dashboard-category-list.interface";
 import {StructurePatternRoutingConstant} from "../../routing/preview/structure-pattern-routing.constant";
 
 

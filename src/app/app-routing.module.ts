@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {PreloadingStrategy, RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {AppRoutingConstant} from "./core/constant/routing/app-routing.constant";
 import {AppPreviewGuard} from "./core/guards/app-preview.guard";
 import {RoutingConfig} from "./core/config/routing.config";

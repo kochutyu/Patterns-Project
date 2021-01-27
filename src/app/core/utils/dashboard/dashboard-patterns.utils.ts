@@ -1,10 +1,13 @@
-import {EDashboardPatternStorage} from "../../enums/storage/dashboard/dashboard-pattern-storage.enum";
-import {IDashboardCard} from "../../interfaces/components/card/dashboard-card.interface";
+import {EDashboardPatternStorage} from "../../../shared/enums/storage/dashboard/dashboard-pattern-storage.enum";
+
 import {DashboardCreatePatternConstant} from "../../constant/components/dashboard/dashboard-create-pattern.constant";
 import {DashboardStructurePatternConstant} from "../../constant/components/dashboard/dashboard-structure-pattern.constant";
+
 import {UArray} from "../array.utils";
-import {IAppState} from "../../interfaces/store/state/app-state.interface";
-import {IDashboardCategoryList} from "../../interfaces/category/dashboard-category-list.interface";
+
+import {IAppState} from "../../../shared/interfaces/store/state/app-state.interface";
+import {IDashboardCard} from "../../../shared/interfaces/components/card/dashboard-card.interface";
+import {IDashboardCategoryList} from "../../../shared/interfaces/category/dashboard-category-list.interface";
 
 export class UDashboardPatterns {
 

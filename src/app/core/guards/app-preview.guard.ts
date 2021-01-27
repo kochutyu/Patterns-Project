@@ -1,12 +1,14 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Store} from "@ngrx/store";
-import {SAppRouting} from "../store/selectors/routing/app-routing.selectors";
 import {map} from "rxjs/operators";
-import {TogglePreviewRouting} from "../store/actions/routing/routing.actions";
-import {AppRoutingConstant} from "../constant/routing/app-routing.constant";
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
+
+import {SAppRouting} from "../store/selectors/routing/app-routing.selectors";
 import {RouteStorage} from "../storage/routs/route.storage";
+import {TogglePreviewRouting} from "../store/actions/routing/routing.actions";
+
+import {AppRoutingConstant} from "../constant/routing/app-routing.constant";
 
 @Injectable()
 export class AppPreviewGuard implements CanActivate {

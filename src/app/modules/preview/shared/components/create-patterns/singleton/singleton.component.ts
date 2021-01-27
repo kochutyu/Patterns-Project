@@ -56,7 +56,6 @@ export class SingletonComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this._destroySubject$))
       .subscribe(state => {
         this.serverState = state;
-        console.log(this.serverState, 'STATE')
       })
 
     this.pattern.valueChanges

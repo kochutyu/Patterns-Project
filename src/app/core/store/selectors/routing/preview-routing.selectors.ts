@@ -1,6 +1,7 @@
 import {createSelector} from "@ngrx/store";
-import {IAppState} from "../../../interfaces/store/state/app-state.interface";
-import {IAppRouting} from "../../../interfaces/store/state/routing/app-routing.interface";
+
+import {IAppState} from "../../../../shared/interfaces/store/state/app-state.interface";
+import {IAppRouting} from "../../../../shared/interfaces/store/state/routing/app-routing.interface";
 
 export class PreviewRoutingSelectors {
 

@@ -4,11 +4,11 @@ import {AppState} from "../../state/app.state";
 
 import {UpdateDashboardCreatePattern} from "../../actions/dashboard/dashboard.action";
 
-import {EDashboardPatternStorage} from "../../../enums/storage/dashboard/dashboard-pattern-storage.enum";
+import {EDashboardPatternStorage} from "../../../../shared/enums/storage/dashboard/dashboard-pattern-storage.enum";
 
 import {UDashboardPatterns} from "../../../utils/dashboard/dashboard-patterns.utils";
 
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+import {IDashboardCategoryList} from "../../../../shared/interfaces/category/dashboard-category-list.interface";
 
 
 const _dashboardCreatePatternsReducer = createReducer(

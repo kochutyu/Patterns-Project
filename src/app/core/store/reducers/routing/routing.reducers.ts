@@ -1,7 +1,10 @@
 import {createReducer, on} from "@ngrx/store";
 import {AppState} from "../../state/app.state";
-import {IAppRouting} from "../../../interfaces/store/state/routing/app-routing.interface";
+
 import {TogglePreviewRouting} from "../../actions/routing/routing.actions";
+
+import {IAppRouting} from "../../../../shared/interfaces/store/state/routing/app-routing.interface";
+
 import {URouting} from "../../../utils/store/routing.utils";
 
 const _routingReducer = createReducer(

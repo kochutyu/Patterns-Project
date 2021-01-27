@@ -1,4 +1,4 @@
-import {ITabLink} from "../../../interfaces/components/tabs/tab-link.interface";
+import {ITabLink} from "../../../../shared/interfaces/components/tabs/tab-link.interface";
 import {AppRoutingConstant} from "../app-routing.constant";
 
 export class StructurePatternRoutingConstant {

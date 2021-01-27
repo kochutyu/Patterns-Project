@@ -4,10 +4,10 @@ import {switchMap, tap} from "rxjs/operators";
 
 import {DashboardPatternStateStorage} from "../../../storage/routs/dashboard-pattern-state.storage";
 
-import {EDashboardPatternStorage} from "../../../enums/storage/dashboard/dashboard-pattern-storage.enum";
+import {EDashboardPatternStorage} from "../../../../shared/enums/storage/dashboard/dashboard-pattern-storage.enum";
 
-import {IAppState} from "../../../interfaces/store/state/app-state.interface";
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+import {IAppState} from "../../../../shared/interfaces/store/state/app-state.interface";
+import {IDashboardCategoryList} from "../../../../shared/interfaces/category/dashboard-category-list.interface";
 
 export class DashboardCreatePatternSelectors {
 

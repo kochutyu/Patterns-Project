@@ -1,10 +1,10 @@
 import {ActionReducerMap} from "@ngrx/store";
 
+import {IAppState} from "../../../shared/interfaces/store/state/app-state.interface";
+
 import {routerReducer} from "@ngrx/router-store";
 import {createPatternReducer} from "./settings/create-pattern.reducers";
 import {structurePatternReducer} from "./settings/structure-pattern.reducers";
-
-import {IAppState} from "../../interfaces/store/state/app-state.interface";
 import {dashboardCreatePatternsReducer} from "./dashboard/dashboard-create-pattern.reducers";
 import {dashboardStructurePatternsReducer} from "./dashboard/dashboard-structure-pattern.reducers";
 import {routingReducer} from "./routing/routing.reducers";

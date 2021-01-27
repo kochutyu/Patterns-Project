@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {IRouterButton} from "../../../core/interfaces/router/router-button.interface";
+import {Component, Input} from '@angular/core';
+import {IRouterButton} from "../../interfaces/router/router-button.interface";
 
 @Component({
   selector: 'app-not-found',

@@ -1,12 +1,15 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ITabLink} from "../../../core/interfaces/components/tabs/tab-link.interface";
-import {IRouterLinkWithIndex} from "../../../core/interfaces/router/router-link-with-index.interface";
+import {filter, takeUntil, tap} from "rxjs/operators";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {NavbarTabLinkConstant} from "../../../core/constant/components/navbar/navbar-tab-link.constant";
 import {Observable, Subject} from "rxjs";
 import {Store} from "@ngrx/store";
+
 import {SAppRouting} from "../../../core/store/selectors/routing/app-routing.selectors";
-import {filter, takeUntil, tap} from "rxjs/operators";
+
+import {NavbarTabLinkConstant} from "../../../core/constant/components/navbar/navbar-tab-link.constant";
+
+import {ITabLink} from "../../interfaces/components/tabs/tab-link.interface";
+import {IRouterLinkWithIndex} from "../../interfaces/router/router-link-with-index.interface";
 
 @Component({
   selector: 'app-navbar-view',

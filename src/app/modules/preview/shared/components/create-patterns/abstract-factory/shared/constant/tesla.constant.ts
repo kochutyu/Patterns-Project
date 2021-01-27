@@ -1,5 +1,5 @@
 import {ITeslaCards} from "../interfaces/tesla-cards.interface";
-import {IDashboardCard} from "../../../../../../../../core/interfaces/components/card/dashboard-card.interface";
+import {IDashboardCard} from "../../../../../../../../shared/interfaces/components/card/dashboard-card.interface";
 
 export class TeslaConstant {
 

@@ -17,7 +17,6 @@ export class PersonalDetails implements IClone{
       prototype: {...this}
     }
 
-    console.log(clone)
     return clone;
   };
 

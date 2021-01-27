@@ -1,8 +1,8 @@
 import {UserStorage} from '../user-storage';
 
-import {EStorageType} from '../../enums/storage/srorage-type.enum';
-import {ECreatePatternStorage} from "../../enums/storage/settings/create-pattern-storage.enum";
-import {EStructurePatternStorage} from "../../enums/storage/settings/structure-pattern-storage.enum";
+import {EStorageType} from '../../../shared/enums/storage/srorage-type.enum';
+import {ECreatePatternStorage} from "../../../shared/enums/storage/settings/create-pattern-storage.enum";
+import {EStructurePatternStorage} from "../../../shared/enums/storage/settings/structure-pattern-storage.enum";
 
 
 export class PatternStateStorage extends UserStorage {

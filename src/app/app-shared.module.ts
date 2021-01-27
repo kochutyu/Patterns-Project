@@ -4,6 +4,7 @@ import {FirebaseModule} from "./core/modules/firebase.module";
 import {SharedModule} from "./shared/shared.module";
 import {NgrxModule} from "./core/modules/ngrx.module";
 
+
 @NgModule({
   declarations: [],
   imports: [

@@ -1,4 +1,4 @@
-import {IAppState} from "../../interfaces/store/state/app-state.interface";
+import {IAppState} from "../../../shared/interfaces/store/state/app-state.interface";
 
 import {initialCreatePatternState} from "./settings/create-pattern.state";
 import {initialStructurePatternState} from "./settings/structure-pattern.state";

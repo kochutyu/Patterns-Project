@@ -7,23 +7,22 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import {AngularFireFunctionsModule} from "@angular/fire/functions";
 import {AngularFireMessagingModule} from "@angular/fire/messaging";
 
+const FIREBASE = [
+  AngularFirestoreModule,
+  AngularFireAuthModule,
+  AngularFireStorageModule,
+  AngularFireFunctionsModule,
+  AngularFireMessagingModule,
+  AngularFireDatabaseModule,
+]
+
 @NgModule({
   imports: [
     CommonModule,
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    AngularFireFunctionsModule,
-    AngularFireMessagingModule,
-    AngularFireDatabaseModule,
+    ...FIREBASE
   ],
   exports: [
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    AngularFireFunctionsModule,
-    AngularFireMessagingModule,
-    AngularFireDatabaseModule,
+    ...FIREBASE
   ]
 })
 export class FirebaseModule {

@@ -67,7 +67,6 @@ export class BridgeComponent implements AfterViewInit{
   }
 
   public volumeUp(device: number): void {
-    console.log(device)
     switch (device) {
       case 0:
         this.tvControl.volumeUp();

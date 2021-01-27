@@ -1,7 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Actions, Effect, ofType} from "@ngrx/effects";
 import {Store} from "@ngrx/store";
+
 import {SettingsService} from "../../../services/settings.service";
+
 import {TogglePreviewRouting} from "../../actions/routing/routing.actions";
 
 @Injectable()

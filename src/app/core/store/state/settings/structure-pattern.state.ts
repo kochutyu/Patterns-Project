@@ -1,8 +1,8 @@
-import {IStructurePatternState} from "../../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
+import {IStructurePatternState} from "../../../../shared/interfaces/store/state/settings/patterns/structure-pattern-state.interface";
 import {PatternStateStorage} from "../../../storage/routs/pattern-state.storage";
-import {EStructurePatternStorage} from "../../../enums/storage/settings/structure-pattern-storage.enum";
-import {ICheckboxPattern} from "../../../interfaces/components/form/checkbox-pattern.interface";
-import {EStructurePattern} from "../../../enums/patterns/structure-pattern/structure-pattern.enum";
+import {EStructurePatternStorage} from "../../../../shared/enums/storage/settings/structure-pattern-storage.enum";
+import {ICheckboxPattern} from "../../../../shared/interfaces/components/form/checkbox-pattern.interface";
+import {EStructurePattern} from "../../../../shared/enums/patterns/structure-pattern/structure-pattern.enum";
 
 export const initialAdapterPatternState: ICheckboxPattern = {
   id: 'structure-pattern-1',

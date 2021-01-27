@@ -1,6 +1,6 @@
 import {UserStorage} from '../user-storage';
 
-import {EStorageType} from '../../enums/storage/srorage-type.enum';
+import {EStorageType} from '../../../shared/enums/storage/srorage-type.enum';
 import {PREVIOUS_ROUTE} from "../../constant/route.constant";
 
 

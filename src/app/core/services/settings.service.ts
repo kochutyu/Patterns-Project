@@ -7,7 +7,7 @@ import {DashboardPatternStateStorage} from "../storage/routs/dashboard-pattern-s
 
 import {SDashboard} from "../store/selectors/dashboard/dashboard.selectors";
 
-import {EDashboardPatternStorage} from "../enums/storage/dashboard/dashboard-pattern-storage.enum";
+import {EDashboardPatternStorage} from "../../shared/enums/storage/dashboard/dashboard-pattern-storage.enum";
 
 
 @Injectable({

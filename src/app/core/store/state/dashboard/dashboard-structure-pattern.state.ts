@@ -1,6 +1,6 @@
-import {IDashboardCategoryList} from "../../../interfaces/category/dashboard-category-list.interface";
+import {IDashboardCategoryList} from "../../../../shared/interfaces/category/dashboard-category-list.interface";
 import {DashboardPatternStateStorage} from "../../../storage/routs/dashboard-pattern-state.storage";
-import {EDashboardPatternStorage} from "../../../enums/storage/dashboard/dashboard-pattern-storage.enum";
+import {EDashboardPatternStorage} from "../../../../shared/enums/storage/dashboard/dashboard-pattern-storage.enum";
 
 
 const storage: IDashboardCategoryList = DashboardPatternStateStorage.getState(EDashboardPatternStorage.STRUCTURE_PATTERNS);

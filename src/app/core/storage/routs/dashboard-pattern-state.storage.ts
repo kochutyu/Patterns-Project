@@ -2,10 +2,10 @@ import {UserStorage} from "../user-storage";
 
 import {UDashboardPatterns} from "../../utils/dashboard/dashboard-patterns.utils";
 
-import {EStorageType} from '../../enums/storage/srorage-type.enum';
-import {EDashboardPatternStorage} from "../../enums/storage/dashboard/dashboard-pattern-storage.enum";
+import {EStorageType} from '../../../shared/enums/storage/srorage-type.enum';
+import {EDashboardPatternStorage} from "../../../shared/enums/storage/dashboard/dashboard-pattern-storage.enum";
 
-import {IDashboardCategoryList} from "../../interfaces/category/dashboard-category-list.interface";
+import {IDashboardCategoryList} from "../../../shared/interfaces/category/dashboard-category-list.interface";
 
 
 export class DashboardPatternStateStorage extends UserStorage {

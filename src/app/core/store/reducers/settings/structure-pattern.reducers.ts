@@ -19,8 +19,8 @@ import {
 
 import {USettings} from "../../../utils/store/settings.utils";
 
-import {ICreatePatternState} from "../../../interfaces/store/state/settings/patterns/create-pattern-state.interface";
-import {IStructurePatternState} from "../../../interfaces/store/state/settings/patterns/structure-pattern-state.interface";
+import {ICreatePatternState} from "../../../../shared/interfaces/store/state/settings/patterns/create-pattern-state.interface";
+import {IStructurePatternState} from "../../../../shared/interfaces/store/state/settings/patterns/structure-pattern-state.interface";
 
 
 const _structurePatternReducer = createReducer(

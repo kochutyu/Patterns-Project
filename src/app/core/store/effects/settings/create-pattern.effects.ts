@@ -22,7 +22,7 @@ import {PatternStateStorage} from "../../../storage/routs/pattern-state.storage"
 
 import {SSettings} from "../../selectors/settings/settings.selectors";
 
-import {ECreatePatternStorage} from "../../../enums/storage/settings/create-pattern-storage.enum";
+import {ECreatePatternStorage} from "../../../../shared/enums/storage/settings/create-pattern-storage.enum";
 
 import {SettingsService} from "../../../services/settings.service";
 
